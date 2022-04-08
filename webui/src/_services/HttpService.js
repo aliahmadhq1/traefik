@@ -8,7 +8,7 @@ function getAllRouters (params) {
     .then(response => {
       const { data = [], headers } = response
       const total = getTotal(headers, params)
-      console.log('Success -> HttpService -> getAllRouters', response, response.data)
+      
       return { data, total }
     })
 }
@@ -16,7 +16,7 @@ function getAllRouters (params) {
 function getRouterByName (name) {
   return APP.api.get(`${apiBase}/routers/${name}`)
     .then(body => {
-      console.log('Success -> HttpService -> getRouterByName', body.data)
+      
       return body.data
     })
 }
@@ -26,7 +26,7 @@ function getAllServices (params) {
     .then(response => {
       const { data = [], headers } = response
       const total = getTotal(headers, params)
-      console.log('Success -> HttpService -> getAllServices', response.data)
+      
       return { data, total }
     })
 }
@@ -34,7 +34,7 @@ function getAllServices (params) {
 function getServiceByName (name) {
   return APP.api.get(`${apiBase}/services/${name}`)
     .then(body => {
-      console.log('Success -> HttpService -> getServiceByName', body.data)
+      
       return body.data
     })
 }
@@ -44,7 +44,7 @@ function getAllMiddlewares (params) {
     .then(response => {
       const { data = [], headers } = response
       const total = getTotal(headers, params)
-      console.log('Success -> HttpService -> getAllMiddlewares', response.data)
+      
       return { data, total }
     })
 }
@@ -52,7 +52,7 @@ function getAllMiddlewares (params) {
 function getMiddlewareByName (name) {
   return APP.api.get(`${apiBase}/middlewares/${name}`)
     .then(body => {
-      console.log('Success -> HttpService -> getMiddlewareByName', body.data)
+      
       return body.data
     })
 }

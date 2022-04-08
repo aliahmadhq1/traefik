@@ -5,7 +5,7 @@ const apiBase = ''
 function getOverview () {
   return APP.api.get(`${apiBase}/overview`)
     .then(body => {
-      console.log('Success -> CoreService -> getOverview', body.data)
+      
       return body.data
     })
 }
@@ -13,7 +13,7 @@ function getOverview () {
 function getVersion () {
   return APP.api.get(`${apiBase}/version`)
     .then(body => {
-      console.log('Success -> CoreService -> getVersion', body.data)
+      
       return body.data
     })
 }

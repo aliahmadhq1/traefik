@@ -5,7 +5,7 @@ const apiBase = '/entrypoints'
 function getAll () {
   return APP.api.get(`${apiBase}`)
     .then(body => {
-      console.log('Success -> EntrypointsService -> getAll', body.data)
+      
       return body.data
     })
 }
@@ -13,7 +13,7 @@ function getAll () {
 function getByName (name) {
   return APP.api.get(`${apiBase}/${name}`)
     .then(body => {
-      console.log('Success -> EntrypointsService -> getByName', body.data)
+      
       return body.data
     })
 }
