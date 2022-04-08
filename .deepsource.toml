@@ -1,0 +1,26 @@
+version = 1
+
+[[analyzers]]
+name = "shell"
+enabled = true
+
+[[analyzers]]
+name = "go"
+enabled = true
+
+  [analyzers.meta]
+  import_root = "github.com/aliahmadhq1/traefik"
+
+[[analyzers]]
+name = "javascript"
+enabled = true
+
+  [analyzers.meta]
+  plugins = [
+    "react",
+    "vue",
+    "angularjs",
+    "meteor",
+    "ember",
+    "angular"
+  ]
