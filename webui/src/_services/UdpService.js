@@ -8,7 +8,7 @@ function getAllRouters (params) {
     .then(response => {
       const { data = [], headers } = response
       const total = getTotal(headers, params)
-      console.log('Success -> UdpService -> getAllRouters', response.data)
+      
       return { data, total }
     })
 }
@@ -16,7 +16,7 @@ function getAllRouters (params) {
 function getRouterByName (name) {
   return APP.api.get(`${apiBase}/routers/${name}`)
     .then(body => {
-      console.log('Success -> UdpService -> getRouterByName', body.data)
+      
       return body.data
     })
 }
@@ -26,7 +26,7 @@ function getAllServices (params) {
     .then(response => {
       const { data = [], headers } = response
       const total = getTotal(headers, params)
-      console.log('Success -> UdpService -> getAllServices', response.data)
+      
       return { data, total }
     })
 }
@@ -34,7 +34,7 @@ function getAllServices (params) {
 function getServiceByName (name) {
   return APP.api.get(`${apiBase}/services/${name}`)
     .then(body => {
-      console.log('Success -> UdpService -> getServiceByName', body.data)
+      
       return body.data
     })
 }
