@@ -30,25 +30,23 @@ Traefik needs the following policy to read ECS information:
 
 ```json
 {
-    "Version": "2012-10-17",
-    "Statement": [
-        {
-            "Sid": "TraefikECSReadAccess",
-            "Effect": "Allow",
-            "Action": [
-                "ecs:ListClusters",
-                "ecs:DescribeClusters",
-                "ecs:ListTasks",
-                "ecs:DescribeTasks",
-                "ecs:DescribeContainerInstances",
-                "ecs:DescribeTaskDefinition",
-                "ec2:DescribeInstances"
-            ],
-            "Resource": [
-                "*"
-            ]
-        }
-    ]
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "TraefikECSReadAccess",
+      "Effect": "Allow",
+      "Action": [
+        "ecs:ListClusters",
+        "ecs:DescribeClusters",
+        "ecs:ListTasks",
+        "ecs:DescribeTasks",
+        "ecs:DescribeContainerInstances",
+        "ecs:DescribeTaskDefinition",
+        "ec2:DescribeInstances"
+      ],
+      "Resource": ["*"]
+    }
+  ]
 }
 ```
 
@@ -134,7 +132,7 @@ providers:
 
 ### `defaultRule`
 
-_Optional, Default=```Host(`{{ normalize .Name }}`)```_
+_Optional, Default=`` Host(`{{ normalize .Name }}`) ``_
 
 The `defaultRule` option defines what routing rule to apply to a container if no rule is defined by a label.
 
@@ -146,7 +144,7 @@ and the template has access to all the labels defined on this container.
 ```yaml tab="File (YAML)"
 providers:
   ecs:
-    defaultRule: "Host(`{{ .Name }}.{{ index .Labels \"customLabel\"}}`)"
+    defaultRule: 'Host(`{{ .Name }}.{{ index .Labels "customLabel"}}`)'
     # ...
 ```
 

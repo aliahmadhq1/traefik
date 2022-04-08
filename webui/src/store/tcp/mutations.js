@@ -1,157 +1,163 @@
-import { withPagination } from '../../_helpers/Mutations'
+import { withPagination } from "../../_helpers/Mutations";
 
 // ----------------------------
 // Get All Routers
 // ----------------------------
-export function getAllRoutersRequest (state) {
-  withPagination('request', { statePath: 'allRouters' })(state)
+export function getAllRoutersRequest(state) {
+  withPagination("request", { statePath: "allRouters" })(state);
 }
 
-export function getAllRoutersSuccess (state, data) {
-  const { query = '', status = '' } = data
-  const currentState = state.allRouters
+export function getAllRoutersSuccess(state, data) {
+  const { query = "", status = "" } = data;
+  const currentState = state.allRouters;
 
-  const isSameContext = currentState.currentQuery === query && currentState.currentStatus === status
+  const isSameContext =
+    currentState.currentQuery === query &&
+    currentState.currentStatus === status;
 
   state.allRouters = {
     ...state.allRouters,
     currentQuery: query,
-    currentStatus: status
-  }
+    currentStatus: status,
+  };
 
-  withPagination('success', {
+  withPagination("success", {
     isSameContext,
-    statePath: 'allRouters'
-  })(state, data)
+    statePath: "allRouters",
+  })(state, data);
 }
 
-export function getAllRoutersFailure (state, error) {
-  withPagination('failure', { statePath: 'allRouters' })(state, error)
+export function getAllRoutersFailure(state, error) {
+  withPagination("failure", { statePath: "allRouters" })(state, error);
 }
 
-export function getAllRoutersClear (state) {
-  state.allRouters = {}
+export function getAllRoutersClear(state) {
+  state.allRouters = {};
 }
 
 // ----------------------------
 // Get Router By Name
 // ----------------------------
-export function getRouterByNameRequest (state) {
-  state.routerByName.loading = true
+export function getRouterByNameRequest(state) {
+  state.routerByName.loading = true;
 }
 
-export function getRouterByNameSuccess (state, body) {
-  state.routerByName = { item: body, loading: false }
+export function getRouterByNameSuccess(state, body) {
+  state.routerByName = { item: body, loading: false };
 }
 
-export function getRouterByNameFailure (state, error) {
-  state.routerByName = { error }
+export function getRouterByNameFailure(state, error) {
+  state.routerByName = { error };
 }
 
-export function getRouterByNameClear (state) {
-  state.routerByName = {}
+export function getRouterByNameClear(state) {
+  state.routerByName = {};
 }
 
 // ----------------------------
 // Get All Services
 // ----------------------------
-export function getAllServicesRequest (state) {
-  withPagination('request', { statePath: 'allServices' })(state)
+export function getAllServicesRequest(state) {
+  withPagination("request", { statePath: "allServices" })(state);
 }
 
-export function getAllServicesSuccess (state, data) {
-  const { query = '', status = '' } = data
-  const currentState = state.allServices
+export function getAllServicesSuccess(state, data) {
+  const { query = "", status = "" } = data;
+  const currentState = state.allServices;
 
-  const isSameContext = currentState.currentQuery === query && currentState.currentStatus === status
+  const isSameContext =
+    currentState.currentQuery === query &&
+    currentState.currentStatus === status;
 
   state.allServices = {
     ...state.allServices,
     currentQuery: query,
-    currentStatus: status
-  }
+    currentStatus: status,
+  };
 
-  withPagination('success', {
+  withPagination("success", {
     isSameContext,
-    statePath: 'allServices'
-  })(state, data)
+    statePath: "allServices",
+  })(state, data);
 }
 
-export function getAllServicesFailure (state, error) {
-  withPagination('failure', { statePath: 'allServices' })(state, error)
+export function getAllServicesFailure(state, error) {
+  withPagination("failure", { statePath: "allServices" })(state, error);
 }
 
-export function getAllServicesClear (state) {
-  state.allServices = {}
+export function getAllServicesClear(state) {
+  state.allServices = {};
 }
 
 // ----------------------------
 // Get Service By Name
 // ----------------------------
-export function getServiceByNameRequest (state) {
-  state.serviceByName.loading = true
+export function getServiceByNameRequest(state) {
+  state.serviceByName.loading = true;
 }
 
-export function getServiceByNameSuccess (state, body) {
-  state.serviceByName = { item: body, loading: false }
+export function getServiceByNameSuccess(state, body) {
+  state.serviceByName = { item: body, loading: false };
 }
 
-export function getServiceByNameFailure (state, error) {
-  state.serviceByName = { error }
+export function getServiceByNameFailure(state, error) {
+  state.serviceByName = { error };
 }
 
-export function getServiceByNameClear (state) {
-  state.serviceByName = {}
+export function getServiceByNameClear(state) {
+  state.serviceByName = {};
 }
 
 // ----------------------------
 // Get All Middlewares
 // ----------------------------
-export function getAllMiddlewaresRequest (state) {
-  withPagination('request', { statePath: 'allMiddlewares' })(state)
+export function getAllMiddlewaresRequest(state) {
+  withPagination("request", { statePath: "allMiddlewares" })(state);
 }
 
-export function getAllMiddlewaresSuccess (state, data) {
-  const { query = '', status = '' } = data
-  const currentState = state.allMiddlewares
+export function getAllMiddlewaresSuccess(state, data) {
+  const { query = "", status = "" } = data;
+  const currentState = state.allMiddlewares;
 
-  const isSameContext = currentState.currentQuery === query && currentState.currentStatus === status
+  const isSameContext =
+    currentState.currentQuery === query &&
+    currentState.currentStatus === status;
 
   state.allMiddlewares = {
     ...state.allMiddlewares,
     currentQuery: query,
-    currentStatus: status
-  }
+    currentStatus: status,
+  };
 
-  withPagination('success', {
+  withPagination("success", {
     isSameContext,
-    statePath: 'allMiddlewares'
-  })(state, data)
+    statePath: "allMiddlewares",
+  })(state, data);
 }
 
-export function getAllMiddlewaresFailure (state, error) {
-  withPagination('failure', { statePath: 'allMiddlewares' })(state, error)
+export function getAllMiddlewaresFailure(state, error) {
+  withPagination("failure", { statePath: "allMiddlewares" })(state, error);
 }
 
-export function getAllMiddlewaresClear (state) {
-  state.allMiddlewares = {}
+export function getAllMiddlewaresClear(state) {
+  state.allMiddlewares = {};
 }
 
 // ----------------------------
 // Get Middleware By Name
 // ----------------------------
-export function getMiddlewareByNameRequest (state) {
-  state.middlewareByName.loading = true
+export function getMiddlewareByNameRequest(state) {
+  state.middlewareByName.loading = true;
 }
 
-export function getMiddlewareByNameSuccess (state, body) {
-  state.middlewareByName = { item: body, loading: false }
+export function getMiddlewareByNameSuccess(state, body) {
+  state.middlewareByName = { item: body, loading: false };
 }
 
-export function getMiddlewareByNameFailure (state, error) {
-  state.middlewareByName = { error }
+export function getMiddlewareByNameFailure(state, error) {
+  state.middlewareByName = { error };
 }
 
-export function getMiddlewareByNameClear (state) {
-  state.middlewareByName = {}
+export function getMiddlewareByNameClear(state) {
+  state.middlewareByName = {};
 }

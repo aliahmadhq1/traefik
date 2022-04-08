@@ -49,9 +49,9 @@ metadata:
 spec:
   chain:
     middlewares:
-    - name: https-only
-    - name: known-ips
-    - name: auth-users
+      - name: https-only
+      - name: known-ips
+      - name: auth-users
 ---
 apiVersion: traefik.containo.us/v1alpha1
 kind: Middleware
@@ -60,7 +60,7 @@ metadata:
 spec:
   basicAuth:
     users:
-    - test:$apr1$H6uskkkW$IgXLP6ewTrSuBkTrqE8wj/
+      - test:$apr1$H6uskkkW$IgXLP6ewTrSuBkTrqE8wj/
 ---
 apiVersion: traefik.containo.us/v1alpha1
 kind: Middleware
@@ -77,8 +77,8 @@ metadata:
 spec:
   ipWhiteList:
     sourceRange:
-    - 192.168.1.7
-    - 127.0.0.1/32
+      - 192.168.1.7
+      - 127.0.0.1/32
 ```
 
 ```yaml tab="Consul Catalog"

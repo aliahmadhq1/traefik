@@ -1,15 +1,11 @@
 [
-	{
-		"entryPoints": [
-			"web"
-		],
-		"name": "baz@myprovider",
-		"provider": "myprovider",
-		"rule": "Host(`toto.bar`)",
-		"service": "foo-service@myprovider",
-		"status": "enabled",
-		"using": [
-			"web"
-		]
-	}
+  {
+    "entryPoints": ["web"],
+    "name": "baz@myprovider",
+    "provider": "myprovider",
+    "rule": "Host(`toto.bar`)",
+    "service": "foo-service@myprovider",
+    "status": "enabled",
+    "using": ["web"]
+  }
 ]

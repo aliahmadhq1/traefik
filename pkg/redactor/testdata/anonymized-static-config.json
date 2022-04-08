@@ -5,11 +5,7 @@
   },
   "serversTransport": {
     "insecureSkipVerify": true,
-    "rootCAs": [
-      "xxxx",
-      "xxxx",
-      "xxxx"
-    ],
+    "rootCAs": ["xxxx", "xxxx", "xxxx"],
     "maxIdleConnsPerHost": 111,
     "forwardingTimeouts": {
       "dialTimeout": "1m51s",
@@ -33,17 +29,11 @@
       },
       "proxyProtocol": {
         "insecure": true,
-        "trustedIPs": [
-          "xxxx",
-          "xxxx"
-        ]
+        "trustedIPs": ["xxxx", "xxxx"]
       },
       "forwardedHeaders": {
         "insecure": true,
-        "trustedIPs": [
-          "xxxx",
-          "xxxx"
-        ]
+        "trustedIPs": ["xxxx", "xxxx"]
       },
       "http": {
         "redirections": {
@@ -54,20 +44,14 @@
             "priority": 42
           }
         },
-        "middlewares": [
-          "foobar",
-          "foobar"
-        ],
+        "middlewares": ["foobar", "foobar"],
         "tls": {
           "options": "foobar",
           "certResolver": "foobar",
           "domains": [
             {
               "main": "xxxx",
-              "sans": [
-                "xxxx",
-                "xxxx"
-              ]
+              "sans": ["xxxx", "xxxx"]
             }
           ]
         }
@@ -131,10 +115,7 @@
       "endpoint": "xxxx",
       "token": "xxxx",
       "certAuthFilePath": "xxxx",
-      "namespaces": [
-        "a",
-        "b"
-      ],
+      "namespaces": ["a", "b"],
       "labelSelector": "myLabelSelector",
       "ingressClass": "MyIngressClass",
       "ingressEndpoint": {
@@ -148,10 +129,7 @@
       "endpoint": "xxxx",
       "token": "xxxx",
       "certAuthFilePath": "xxxx",
-      "namespaces": [
-        "a",
-        "b"
-      ],
+      "namespaces": ["a", "b"],
       "labelSelector": "myLabelSelector",
       "ingressClass": "MyIngressClass",
       "throttleDuration": "1m51s"
@@ -160,10 +138,7 @@
       "endpoint": "xxxx",
       "token": "xxxx",
       "certAuthFilePath": "xxxx",
-      "namespaces": [
-        "a",
-        "b"
-      ],
+      "namespaces": ["a", "b"],
       "labelSelector": "myLabelSelector",
       "throttleDuration": "1m51s"
     },
@@ -213,10 +188,7 @@
       "exposedByDefault": true,
       "refreshSeconds": 42,
       "defaultRule": "xxxx",
-      "clusters": [
-        "Cluster1",
-        "Cluster2"
-      ],
+      "clusters": ["Cluster1", "Cluster2"],
       "autoDiscoverClusters": true,
       "region": "Awsregion",
       "accessKeyID": "xxxx",
@@ -290,12 +262,7 @@
   },
   "metrics": {
     "prometheus": {
-      "buckets": [
-        0.1,
-        0.3,
-        1.2,
-        5
-      ],
+      "buckets": [0.1, 0.3, 1.2, 5],
       "addEntryPointsLabels": true,
       "addServicesLabels": true,
       "entryPoint": "MyEntryPoint",
@@ -340,10 +307,7 @@
     "filePath": "xxxx",
     "format": "AccessLog Format",
     "filters": {
-      "statusCodes": [
-        "200",
-        "500"
-      ],
+      "statusCodes": ["200", "500"],
       "retryAttempts": true,
       "minDuration": "42ns"
     },
@@ -430,10 +394,7 @@
         "dnsChallenge": {
           "provider": "DNSProvider",
           "delayBeforeCheck": "42ns",
-          "resolvers": [
-            "xxxx",
-            "xxxx"
-          ],
+          "resolvers": ["xxxx", "xxxx"],
           "disablePropagationCheck": true
         },
         "httpChallenge": {

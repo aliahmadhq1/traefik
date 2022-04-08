@@ -1,7 +1,7 @@
 # Docker-compose with let's encrypt: TLS Challenge
 
 This guide aim to demonstrate how to create a certificate with the let's encrypt TLS challenge to use https on a simple service exposed with Traefik.  
-Please also read the [basic example](../basic-example) for details on how to expose such a service.  
+Please also read the [basic example](../basic-example) for details on how to expose such a service.
 
 ## Prerequisite
 
@@ -22,10 +22,10 @@ For the TLS challenge you will need:
 - Replace `whoami.example.com` by your **own domain** within the `traefik.http.routers.whoami.rule` label of the `whoami` service.
 - Optionally uncomment the following lines if you want to test/debug:
 
-	```yaml
-	#- "--log.level=DEBUG"
-	#- "--certificatesresolvers.myresolver.acme.caserver=https://acme-staging-v02.api.letsencrypt.org/directory"
-	```
+  ```yaml
+  #- "--log.level=DEBUG"
+  #- "--certificatesresolvers.myresolver.acme.caserver=https://acme-staging-v02.api.letsencrypt.org/directory"
+  ```
 
 - Run `docker-compose up -d` within the folder where you created the previous file.
 - Wait a bit and visit `https://your_own_domain` to confirm everything went fine.

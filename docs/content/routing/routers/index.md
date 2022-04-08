@@ -210,7 +210,7 @@ Rules are a set of matchers configured with values, that determine if a particul
 If the rule is verified, the router becomes active, calls middlewares, and then forwards the request to the service.
 
 ??? tip "Backticks or Quotes?"
-    To set the value of a rule, use [backticks](https://en.wiktionary.org/wiki/backtick) ``` ` ``` or escaped double-quotes `\"`.
+To set the value of a rule, use [backticks](https://en.wiktionary.org/wiki/backtick) `` ` `` or escaped double-quotes `\"`.
 
     Single quotes `'` are not accepted as values are [Golang's String Literals](https://golang.org/ref/spec#String_literals).
 
@@ -229,17 +229,17 @@ If the rule is verified, the router becomes active, calls middlewares, and then 
 The table below lists all the available matchers:
 
 | Rule                                                                   | Description                                                                                                    |
-|------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------|
-| ```Headers(`key`, `value`)```                                          | Check if there is a key `key`defined in the headers, with the value `value`                                    |
-| ```HeadersRegexp(`key`, `regexp`)```                                   | Check if there is a key `key`defined in the headers, with a value that matches the regular expression `regexp` |
-| ```Host(`example.com`, ...)```                                         | Check if the request domain (host header value) targets one of the given `domains`.                            |
-| ```HostHeader(`example.com`, ...)```                                   | Same as `Host`, only exists for historical reasons.                                                            |
-| ```HostRegexp(`example.com`, `{subdomain:[a-z]+}.example.com`, ...)``` | Match the request domain. See "Regexp Syntax" below.                                                           |
-| ```Method(`GET`, ...)```                                               | Check if the request method is one of the given `methods` (`GET`, `POST`, `PUT`, `DELETE`, `PATCH`, `HEAD`)    |
-| ```Path(`/path`, `/articles/{cat:[a-z]+}/{id:[0-9]+}`, ...)```         | Match exact request path. See "Regexp Syntax" below.                                                           |
-| ```PathPrefix(`/products/`, `/articles/{cat:[a-z]+}/{id:[0-9]+}`)```   | Match request prefix path. See "Regexp Syntax" below.                                                          |
-| ```Query(`foo=bar`, `bar=baz`)```                                      | Match Query String parameters. It accepts a sequence of key=value pairs.                                       |
-| ```ClientIP(`10.0.0.0/16`, `::1`)```                                   | Match if the request client IP is one of the given IP/CIDR. It accepts IPv4, IPv6 and CIDR formats.            |
+| ---------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------- |
+| `` Headers(`key`, `value`) ``                                          | Check if there is a key `key`defined in the headers, with the value `value`                                    |
+| `` HeadersRegexp(`key`, `regexp`) ``                                   | Check if there is a key `key`defined in the headers, with a value that matches the regular expression `regexp` |
+| `` Host(`example.com`, ...) ``                                         | Check if the request domain (host header value) targets one of the given `domains`.                            |
+| `` HostHeader(`example.com`, ...) ``                                   | Same as `Host`, only exists for historical reasons.                                                            |
+| `` HostRegexp(`example.com`, `{subdomain:[a-z]+}.example.com`, ...) `` | Match the request domain. See "Regexp Syntax" below.                                                           |
+| `` Method(`GET`, ...) ``                                               | Check if the request method is one of the given `methods` (`GET`, `POST`, `PUT`, `DELETE`, `PATCH`, `HEAD`)    |
+| `` Path(`/path`, `/articles/{cat:[a-z]+}/{id:[0-9]+}`, ...) ``         | Match exact request path. See "Regexp Syntax" below.                                                           |
+| `` PathPrefix(`/products/`, `/articles/{cat:[a-z]+}/{id:[0-9]+}`) ``   | Match request prefix path. See "Regexp Syntax" below.                                                          |
+| `` Query(`foo=bar`, `bar=baz`) ``                                      | Match Query String parameters. It accepts a sequence of key=value pairs.                                       |
+| `` ClientIP(`10.0.0.0/16`, `::1`) ``                                   | Match if the request client IP is one of the given IP/CIDR. It accepts IPv4, IPv6 and CIDR formats.            |
 
 !!! important "Non-ASCII Domain Names"
 
@@ -412,7 +412,7 @@ or [marathon](../providers/marathon.md#service-definition) documentation.
 
 #### General
 
- When a TLS section is specified, it instructs Traefik that the current router is dedicated to HTTPS requests only (and that the router should ignore HTTP (non TLS) requests).
+When a TLS section is specified, it instructs Traefik that the current router is dedicated to HTTPS requests only (and that the router should ignore HTTP (non TLS) requests).
 Traefik will terminate the SSL connections (meaning that it will send decrypted data to the services).
 
 ??? example "Configuring the router to accept HTTPS requests only"
@@ -603,7 +603,7 @@ http:
 ```
 
 !!! info "Multiple Hosts in a Rule"
-    The rule ```Host(`test1.example.com`,`test2.example.com`)``` will request a certificate with the main domain `test1.example.com` and SAN `test2.example.com`.
+The rule `` Host(`test1.example.com`,`test2.example.com`) `` will request a certificate with the main domain `test1.example.com` and SAN `test2.example.com`.
 
 #### `domains`
 
@@ -651,7 +651,7 @@ The [supported `provider` table](../../https/acme.md#providers) indicates if the
 !!! important "Wildcard certificates can only be verified through a [`DNS-01` challenge](../../https/acme.md#dnschallenge)."
 
 !!! warning "Double Wildcard Certificates"
-    It is not possible to request a double wildcard certificate for a domain (for example `*.*.local.com`).
+It is not possible to request a double wildcard certificate for a domain (for example `*.*.local.com`).
 
 ## Configuring TCP Routers
 
@@ -659,7 +659,7 @@ The [supported `provider` table](../../https/acme.md#providers) indicates if the
 
 ### General
 
-If both HTTP routers and TCP routers listen to the same entry points, the TCP routers will apply *before* the HTTP routers.
+If both HTTP routers and TCP routers listen to the same entry points, the TCP routers will apply _before_ the HTTP routers.
 If no matching route is found for the TCP routers, then the HTTP routers will take over.
 
 ### EntryPoints
@@ -796,8 +796,8 @@ If you want to limit the router scope to a set of entry points, set the entry po
 ### Rule
 
 | Rule                           | Description                                                             |
-|--------------------------------|-------------------------------------------------------------------------|
-| ```HostSNI(`domain-1`, ...)``` | Check if the Server Name Indication corresponds to the given `domains`. |
+| ------------------------------ | ----------------------------------------------------------------------- |
+| `` HostSNI(`domain-1`, ...) `` | Check if the Server Name Indication corresponds to the given `domains`. |
 
 !!! important "Non-ASCII Domain Names"
 
@@ -1034,14 +1034,14 @@ So UDP "routers" at this time are pretty much only load-balancers in one form or
 
 !!! important "Sessions and timeout"
 
-	Even though UDP is connectionless (and because of that),
-	the implementation of an UDP router in Traefik relies on what we (and a couple of other implementations) call a `session`.
-	It basically means that some state is kept about an ongoing communication between a client and a backend,
-	notably so that the proxy knows where to forward a response packet from a backend.
-	As expected, a `timeout` is associated to each of these sessions,
-	so that they get cleaned out if they go through a period of inactivity longer than a given duration. 
-	Timeout can be configured using the `entryPoints.name.udp.timeout` option as described 
-	under [entry points](../entrypoints/#udp-options).
+    Even though UDP is connectionless (and because of that),
+    the implementation of an UDP router in Traefik relies on what we (and a couple of other implementations) call a `session`.
+    It basically means that some state is kept about an ongoing communication between a client and a backend,
+    notably so that the proxy knows where to forward a response packet from a backend.
+    As expected, a `timeout` is associated to each of these sessions,
+    so that they get cleaned out if they go through a period of inactivity longer than a given duration.
+    Timeout can be configured using the `entryPoints.name.udp.timeout` option as described
+    under [entry points](../entrypoints/#udp-options).
 
 ### EntryPoints
 

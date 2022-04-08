@@ -54,7 +54,7 @@ If the given format is unsupported, the default (CLF) is used instead.
 
 ### `bufferingSize`
 
-To write the logs in an asynchronous fashion, specify a  `bufferingSize` option.
+To write the logs in an asynchronous fashion, specify a `bufferingSize` option.
 This option represents the number of log lines Traefik will keep in memory before writing them to the selected output.
 In some cases, this option can greatly help performances.
 
@@ -135,8 +135,8 @@ Each field can be set to:
 
 The `defaultMode` for `fields.headers` is `drop`.
 
-  [accessLog.fields]
-    defaultMode = "keep"
+[accessLog.fields]
+defaultMode = "keep"
 
 ```yaml tab="File (YAML)"
 # Limiting the Logs to Specific Fields
@@ -150,9 +150,9 @@ accessLog:
     headers:
       defaultMode: keep
       names:
-          User-Agent: redact
-          Authorization: drop
-          Content-Type: keep
+        User-Agent: redact
+        Authorization: drop
+        Content-Type: keep
 ```
 
 ```toml tab="File (TOML)"
@@ -229,7 +229,7 @@ Traefik will close and reopen its log files, assuming they're configured, on rec
 This allows the logs to be rotated and processed by an external program, such as `logrotate`.
 
 !!! warning
-    This does not work on Windows due to the lack of USR signals.
+This does not work on Windows due to the lack of USR signals.
 
 ## Time Zones
 

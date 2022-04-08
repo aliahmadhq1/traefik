@@ -89,7 +89,7 @@ providers:
 
 ### `defaultRule`
 
-_Optional, Default=```Host(`{{ normalize .Name }}`)```_
+_Optional, Default=`` Host(`{{ normalize .Name }}`) ``_
 
 The default host rule for all services.
 
@@ -105,7 +105,7 @@ This option can be overridden on a container basis with the `traefik.http.router
 ```yaml tab="File (YAML)"
 providers:
   rancher:
-    defaultRule: "Host(`{{ .Name }}.{{ index .Labels \"customLabel\"}}`)"
+    defaultRule: 'Host(`{{ .Name }}.{{ index .Labels "customLabel"}}`)'
     # ...
 ```
 

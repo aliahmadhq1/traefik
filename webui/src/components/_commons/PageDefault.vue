@@ -1,15 +1,13 @@
 <template>
   <q-page>
-    <slot/>
+    <slot />
   </q-page>
 </template>
 
 <script>
 export default {
-  name: 'PageDefault'
-}
+  name: "PageDefault",
+};
 </script>
 
-<style scoped lang="scss">
-
-</style>
+<style scoped lang="scss"></style>

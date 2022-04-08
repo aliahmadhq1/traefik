@@ -27,26 +27,26 @@ For additional information, refer to [Marathon user guide](../user-guides/marath
     Attaching labels to Marathon applications
 
     ```json
-	{
-		"id": "/whoami",
-		"container": {
-			"type": "DOCKER",
-			"docker": {
-				"image": "traefik/whoami",
-				"network": "BRIDGE",
-				"portMappings": [
-					{
-						"containerPort": 80,
-						"hostPort": 0,
-						"protocol": "tcp"
-					}
-				]
-			}
-		},
-		"labels": {
-			"traefik.http.Routers.app.Rule": "PathPrefix(`/app`)"
-		}
-	}
+    {
+    	"id": "/whoami",
+    	"container": {
+    		"type": "DOCKER",
+    		"docker": {
+    			"image": "traefik/whoami",
+    			"network": "BRIDGE",
+    			"portMappings": [
+    				{
+    					"containerPort": 80,
+    					"hostPort": 0,
+    					"protocol": "tcp"
+    				}
+    			]
+    		}
+    	},
+    	"labels": {
+    		"traefik.http.Routers.app.Rule": "PathPrefix(`/app`)"
+    	}
+    }
     ```
 
 ## Routing Configuration
@@ -107,7 +107,7 @@ providers:
 
 ### `defaultRule`
 
-_Optional, Default=```Host(`{{ normalize .Name }}`)```_
+_Optional, Default=`` Host(`{{ normalize .Name }}`) ``_
 
 The default host rule for all services.
 
@@ -122,7 +122,7 @@ and the template has access to all the labels defined on this Marathon applicati
 ```yaml tab="File (YAML)"
 providers:
   marathon:
-    defaultRule: "Host(`{{ .Name }}.{{ index .Labels \"customLabel\"}}`)"
+    defaultRule: 'Host(`{{ .Name }}.{{ index .Labels "customLabel"}}`)'
     # ...
 ```
 

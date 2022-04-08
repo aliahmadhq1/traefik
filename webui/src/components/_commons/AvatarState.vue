@@ -8,20 +8,20 @@
 
 <script>
 export default {
-  name: 'AvatarState',
-  props: ['state']
-}
+  name: "AvatarState",
+  props: ["state"],
+};
 </script>
 
 <style scoped lang="scss">
-  @import "../../css/sass/variables";
+@import "../../css/sass/variables";
 
-  .q-avatar{
-    font-size: 32px;
-    border-radius: 4px;
-    .q-icon {
-      font-size: 22px;
-      margin: 0 0 0 1px;
-    }
+.q-avatar {
+  font-size: 32px;
+  border-radius: 4px;
+  .q-icon {
+    font-size: 22px;
+    margin: 0 0 0 1px;
   }
+}
 </style>

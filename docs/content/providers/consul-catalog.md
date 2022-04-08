@@ -525,7 +525,7 @@ providers:
 
 ### `defaultRule`
 
-_Optional, Default=```Host(`{{ normalize .Name }}`)```_
+_Optional, Default=`` Host(`{{ normalize .Name }}`) ``_
 
 The default host rule for all services.
 
@@ -540,7 +540,7 @@ The option can be overridden on an instance basis with the `traefik.http.routers
 ```yaml tab="File (YAML)"
 providers:
   consulCatalog:
-    defaultRule: "Host(`{{ .Name }}.{{ index .Labels \"customLabel\"}}`)"
+    defaultRule: 'Host(`{{ .Name }}.{{ index .Labels "customLabel"}}`)'
     # ...
 ```
 
@@ -638,7 +638,7 @@ The `constraints` option can be set to an expression that Traefik matches agains
 to create any route for that service. If none of the service tags match the expression, no route for that service is
 created. If the expression is empty, all detected services are included.
 
-The expression syntax is based on the ```Tag(`tag`)```, and ```TagRegex(`tag`)``` functions,
+The expression syntax is based on the `` Tag(`tag`) ``, and `` TagRegex(`tag`) `` functions,
 as well as the usual boolean logic, as shown in examples below.
 
 ??? example "Constraints Expression Examples"
@@ -707,7 +707,7 @@ The `namespace` option defines the namespace in which the consul catalog service
 ```yaml tab="File (YAML)"
 providers:
   consulCatalog:
-    namespace: "production" 
+    namespace: "production"
     # ...
 ```
 

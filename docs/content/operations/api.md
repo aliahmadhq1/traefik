@@ -14,7 +14,7 @@ In production, it should be at least secured by authentication and authorization
 A good sane default (non exhaustive) set of recommendations
 would be to apply the following protection mechanisms:
 
-* At the transport level:
+- At the transport level:
   NOT publicly exposing the API's port,
   keeping it restricted to internal networks
   (as in the [principle of least privilege](https://en.wikipedia.org/wiki/Principle_of_least_privilege), applied to networks).
@@ -46,8 +46,8 @@ And then define a routing configuration on Traefik itself with the
 --8<-- "content/operations/include-api-examples.md"
 
 ??? warning "The router's [rule](../../routing/routers#rule) must catch requests for the URI path `/api`"
-    Using an "Host" rule is recommended, by catching all the incoming traffic on this host domain to the API.
-    However, you can also use "path prefix" rule or any combination or rules.
+Using an "Host" rule is recommended, by catching all the incoming traffic on this host domain to the API.
+However, you can also use "path prefix" rule or any combination or rules.
 
     ```bash tab="Host Rule"
     # Matches http://traefik.example.com, http://traefik.example.com/api
@@ -72,7 +72,7 @@ And then define a routing configuration on Traefik itself with the
 Enable the API in `insecure` mode, which means that the API will be available directly on the entryPoint named `traefik`.
 
 !!! info
-    If the entryPoint named `traefik` is not configured, it will be automatically created on port 8080.
+If the entryPoint named `traefik` is not configured, it will be automatically created on port 8080.
 
 ```yaml tab="File (YAML)"
 api:
@@ -109,7 +109,7 @@ api:
 ```
 
 !!! warning "With Dashboard enabled, the router [rule](../../routing/routers#rule) must catch requests for both `/api` and `/dashboard`"
-    Please check the [Dashboard documentation](./dashboard.md#dashboard-router-rule) to learn more about this and to get examples.
+Please check the [Dashboard documentation](./dashboard.md#dashboard-router-rule) to learn more about this and to get examples.
 
 ### `debug`
 
@@ -136,7 +136,7 @@ api:
 All the following endpoints must be accessed with a `GET` HTTP request.
 
 | Path                           | Description                                                                                 |
-|--------------------------------|---------------------------------------------------------------------------------------------|
+| ------------------------------ | ------------------------------------------------------------------------------------------- |
 | `/api/http/routers`            | Lists all the HTTP routers information.                                                     |
 | `/api/http/routers/{name}`     | Returns the information of the HTTP router specified by `name`.                             |
 | `/api/http/services`           | Lists all the HTTP services information.                                                    |

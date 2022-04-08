@@ -51,14 +51,14 @@ spec:
             pathType: Exact
             backend:
               service:
-                name:  service1
+                name: service1
                 port:
                   number: 80
           - path: /foo
             pathType: Exact
             backend:
               service:
-                name:  service1
+                name: service1
                 port:
                   number: 80
 ```
@@ -445,7 +445,7 @@ providers:
 
 ### `allowEmptyServices`
 
-_Optional, Default: false
+\_Optional, Default: false
 
 ```yaml tab="File (YAML)"
 providers:

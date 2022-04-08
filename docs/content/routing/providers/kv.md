@@ -17,7 +17,7 @@ A Story of key & values
 ??? info "`traefik/http/routers/<router_name>/rule`"
 
     See [rule](../routers/index.md#rule) for more information.
-    
+
     | Key (Path)                           | Value                      |
     |--------------------------------------|----------------------------|
     | `traefik/http/routers/myrouter/rule` | ```Host(`example.com`)```  |
@@ -56,14 +56,14 @@ A Story of key & values
     | Key (Path)                          | Value  |
     |-------------------------------------|--------|
     | `traefik/http/routers/myrouter/tls` | `true` |
-    
+
 ??? info "`traefik/http/routers/<router_name>/tls/certresolver`"
 
     See [certResolver](../routers/index.md#certresolver) for more information.
 
     | Key (Path)                                       | Value        |
     |--------------------------------------------------|--------------|
-    | `traefik/http/routers/myrouter/tls/certresolver` | `myresolver` |    
+    | `traefik/http/routers/myrouter/tls/certresolver` | `myresolver` |
 
 ??? info "`traefik/http/routers/<router_name>/tls/domains/<n>/main`"
 
@@ -72,7 +72,7 @@ A Story of key & values
     | Key (Path)                                         | Value         |
     |----------------------------------------------------|---------------|
     | `traefik/http/routers/myrouter/tls/domains/0/main` | `example.org` |
-    
+
 ??? info "`traefik/http/routers/<router_name>/tls/domains/<n>/sans/<n>`"
 
     See [domains](../routers/index.md#domains) for more information.
@@ -81,7 +81,7 @@ A Story of key & values
     |------------------------------------------------------|--------------------|
     | `traefik/http/routers/myrouter/tls/domains/0/sans/0` | `test.example.org` |
     | `traefik/http/routers/myrouter/tls/domains/0/sans/1` | `dev.example.org`  |
-    
+
 ??? info "`traefik/http/routers/<router_name>/tls/options`"
 
     See [options](../routers/index.md#options) for more information.
@@ -309,19 +309,19 @@ You can declare TCP Routers and/or Services using KV.
     |-------------------------------------------------|-------|
     | `traefik/tcp/routers/mytcprouter/entrypoints/0` | `ep1` |
     | `traefik/tcp/routers/mytcprouter/entrypoints/1` | `ep2` |
-    
+
 ??? info "`traefik/tcp/routers/<router_name>/rule`"
 
     See [rule](../routers/index.md#rule_1) for more information.
 
     | Key (Path)                           | Value                        |
     |--------------------------------------|------------------------------|
-    | `traefik/tcp/routers/my-router/rule` | ```HostSNI(`example.com`)``` |  
+    | `traefik/tcp/routers/my-router/rule` | ```HostSNI(`example.com`)``` |
 
 ??? info "`traefik/tcp/routers/<router_name>/service`"
 
     See [service](../routers/index.md#services) for more information.
-    
+
     | Key (Path)                                | Value       |
     |-------------------------------------------|-------------|
     | `traefik/tcp/routers/mytcprouter/service` | `myservice` |
@@ -349,7 +349,7 @@ You can declare TCP Routers and/or Services using KV.
     | Key (Path)                                           | Value         |
     |------------------------------------------------------|---------------|
     | `traefik/tcp/routers/mytcprouter/tls/domains/0/main` | `example.org` |
-        
+
 ??? info "`traefik/tcp/routers/<router_name>/tls/domains/<n>/sans`"
 
     See [domains](../routers/index.md#domains_1) for more information.
@@ -358,7 +358,7 @@ You can declare TCP Routers and/or Services using KV.
     |--------------------------------------------------------|--------------------|
     | `traefik/tcp/routers/mytcprouter/tls/domains/0/sans/0` | `test.example.org` |
     | `traefik/tcp/routers/mytcprouter/tls/domains/0/sans/1` | `dev.example.org`  |
-    
+
 ??? info "`traefik/tcp/routers/<router_name>/tls/options`"
 
     See [options](../routers/index.md#options_1) for more information.
@@ -366,7 +366,6 @@ You can declare TCP Routers and/or Services using KV.
     | Key (Path)                                    | Value    |
     |-----------------------------------------------|----------|
     | `traefik/tcp/routers/mytcprouter/tls/options` | `foobar` |
-    
 
 ??? info "`traefik/tcp/routers/<router_name>/tls/passthrough`"
 
@@ -393,7 +392,7 @@ You can declare TCP Routers and/or Services using KV.
     | Key (Path)                                                        | Value |
     |-------------------------------------------------------------------|-------|
     | `traefik/tcp/services/mytcpservice/loadbalancer/terminationdelay` | `100` |
-    
+
 ??? info "`traefik/tcp/services/<service_name>/loadbalancer/proxyprotocol/version`"
 
     See [PROXY protocol](../services/index.md#proxy-protocol) for more information.

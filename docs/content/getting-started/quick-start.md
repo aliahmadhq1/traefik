@@ -10,7 +10,7 @@ A Simple Use Case Using Docker
 Create a `docker-compose.yml` file where you will define a `reverse-proxy` service that uses the official Traefik image:
 
 ```yaml
-version: '3'
+version: "3"
 
 services:
   reverse-proxy:
@@ -46,11 +46,11 @@ Edit your `docker-compose.yml` file and add the following at the end of your fil
 
 ```yaml
 # ...
-  whoami:
-    # A container that exposes an API to show its IP address
-    image: traefik/whoami
-    labels:
-      - "traefik.http.routers.whoami.rule=Host(`whoami.docker.localhost`)"
+whoami:
+  # A container that exposes an API to show its IP address
+  image: traefik/whoami
+  labels:
+    - "traefik.http.routers.whoami.rule=Host(`whoami.docker.localhost`)"
 ```
 
 The above defines `whoami`: a simple web service that outputs information about the machine it is deployed on (its IP address, host, and so on).
@@ -63,7 +63,7 @@ docker-compose up -d whoami
 
 Go back to your browser (`http://localhost:8080/api/rawdata`) and see that Traefik has automatically detected the new container and updated its own configuration.
 
-When Traefik detects new services, it creates the corresponding routes so you can call them ... _let's see!_  (Here, we're using curl)
+When Traefik detects new services, it creates the corresponding routes so you can call them ... _let's see!_ (Here, we're using curl)
 
 ```shell
 curl -H Host:whoami.docker.localhost http://127.0.0.1
@@ -108,4 +108,4 @@ IP: 172.27.0.4
 ```
 
 !!! question "Where to Go Next?"
-    Now that you have a basic understanding of how Traefik can automatically create the routes to your services and load balance them, it is time to dive into [the documentation](/) and let Traefik work for you!
+Now that you have a basic understanding of how Traefik can automatically create the routes to your services and load balance them, it is time to dive into [the documentation](/) and let Traefik work for you!

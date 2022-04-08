@@ -10,7 +10,7 @@ not accounting for people having helped with issues, tests, comments, articles, 
 So once again, thank you for your invaluable help on making Traefik such a good product.
 
 !!! question "Where to Go Next?"
-    If you want to:
+If you want to:
 
     - Propose and idea, request a feature a report a bug,
       read the page [Submitting Issues](./submitting-issues.md).

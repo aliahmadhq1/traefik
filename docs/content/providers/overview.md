@@ -116,7 +116,7 @@ For the list of the providers names, see the [supported providers](#supported-pr
       name: ingress
       namespace: appspace
       annotations:
-        # referencing a middleware from Kubernetes CRD provider: 
+        # referencing a middleware from Kubernetes CRD provider:
         # <middleware-namespace>-<middleware-name>@kubernetescrd
         "traefik.ingress.kubernetes.io/router.middlewares": appspace-stripprefix@kubernetescrd
     spec:
@@ -128,7 +128,7 @@ For the list of the providers names, see the [supported providers](#supported-pr
 Below is the list of the currently supported providers in Traefik.
 
 | Provider                                          | Type         | Configuration Type   | Provider Name       |
-|---------------------------------------------------|--------------|----------------------|---------------------|
+| ------------------------------------------------- | ------------ | -------------------- | ------------------- |
 | [Docker](./docker.md)                             | Orchestrator | Label                | `docker`            |
 | [Kubernetes IngressRoute](./kubernetes-crd.md)    | Orchestrator | Custom Resource      | `kubernetescrd`     |
 | [Kubernetes Ingress](./kubernetes-ingress.md)     | Orchestrator | Ingress              | `kubernetes`        |

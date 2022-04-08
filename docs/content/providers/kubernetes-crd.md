@@ -23,7 +23,7 @@ the Traefik engineering team developed a [Custom Resource Definition](https://ku
 !!! warning "Deprecated apiextensions.k8s.io/v1beta1 CRD"
 
     The `apiextensions.k8s.io/v1beta1` CustomResourceDefinition is deprecated in Kubernetes `v1.16+` and will be removed in `v1.22+`.
-    
+
     For Kubernetes `v1.16+`, please use the Traefik `apiextensions.k8s.io/v1` CRDs instead.
 
 ??? example "Initializing Resource Definition and RBAC"
@@ -43,10 +43,10 @@ When using KubernetesCRD as a provider,
 Traefik uses [Custom Resource Definition](https://kubernetes.io/docs/concepts/extend-kubernetes/api-extension/custom-resources/) to retrieve its routing configuration.
 Traefik Custom Resource Definitions are a Kubernetes implementation of the Traefik concepts. The main particularities are:
 
-* The usage of `name` **and** `namespace` to refer to another Kubernetes resource.
-* The usage of [secret](https://kubernetes.io/docs/concepts/configuration/secret/) for sensitive data (TLS certificates and credentials).
-* The structure of the configuration.
-* The requirement to declare all the [definitions](../reference/dynamic-configuration/kubernetes-crd.md#definitions).
+- The usage of `name` **and** `namespace` to refer to another Kubernetes resource.
+- The usage of [secret](https://kubernetes.io/docs/concepts/configuration/secret/) for sensitive data (TLS certificates and credentials).
+- The structure of the configuration.
+- The requirement to declare all the [definitions](../reference/dynamic-configuration/kubernetes-crd.md#definitions).
 
 The Traefik CRDs are building blocks that you can assemble according to your needs.
 See the list of CRDs in the dedicated [routing section](../routing/providers/kubernetes-crd.md).
@@ -162,8 +162,8 @@ If left empty, watches all namespaces if the value of `namespaces`.
 providers:
   kubernetesCRD:
     namespaces:
-    - "default"
-    - "production"
+      - "default"
+      - "production"
     # ...
 ```
 
@@ -268,7 +268,7 @@ providers:
 
 _Optional, Default: false_
 
-If the parameter is set to `true`, IngressRoutes are  able to reference  resources in other namespaces than theirs.
+If the parameter is set to `true`, IngressRoutes are able to reference resources in other namespaces than theirs.
 
 ```yaml tab="File (YAML)"
 providers:

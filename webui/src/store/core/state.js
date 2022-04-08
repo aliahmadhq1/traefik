@@ -1,4 +1,4 @@
 export default {
   allOverview: {},
-  version: ''
-}
+  version: "",
+};

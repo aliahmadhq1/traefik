@@ -81,4 +81,4 @@ Traefik will close and reopen its log files, assuming they're configured, on rec
 This allows the logs to be rotated and processed by an external program, such as `logrotate`.
 
 !!! warning
-    This does not work on Windows due to the lack of USR signals.
+This does not work on Windows due to the lack of USR signals.

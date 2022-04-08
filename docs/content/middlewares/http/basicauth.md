@@ -89,7 +89,7 @@ The `users` option is an array of authorized users. Each user must be declared u
     - For security reasons, the field `users` doesn't exist for Kubernetes IngressRoute, and one should use the `secret` field instead.
 
 !!! note "Kubernetes kubernetes.io/basic-auth secret type"
-    
+
     Kubernetes supports a special `kubernetes.io/basic-auth` secret type.
     This secret must contain two keys: `username` and `password`.
     Please note that these keys are not hashed or encrypted in any way, and therefore is less secure than other methods.

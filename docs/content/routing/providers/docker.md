@@ -171,7 +171,7 @@ and the router automatically gets a rule defined by `defaultRule` (if no rule fo
 To update the configuration of the Router automatically attached to the container,
 add labels starting with `traefik.http.routers.<name-of-your-choice>.` and followed by the option you want to change.
 
-For example, to change the rule, you could add the label ```traefik.http.routers.my-container.rule=Host(`example.com`)```.
+For example, to change the rule, you could add the label `` traefik.http.routers.my-container.rule=Host(`example.com`) ``.
 
 !!! warning "The character `@` is not authorized in the router name `<router_name>`."
 
@@ -636,7 +636,7 @@ If a container is linked to several networks, be sure to set the proper network 
 otherwise it will randomly pick one (depending on how docker is returning them).
 
 !!! warning
-    When deploying a stack from a compose file `stack`, the networks defined are prefixed with `stack`.
+When deploying a stack from a compose file `stack`, the networks defined are prefixed with `stack`.
 
 #### `traefik.docker.lbswarm`
 

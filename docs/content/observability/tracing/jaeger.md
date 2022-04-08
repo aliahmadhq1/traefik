@@ -17,11 +17,11 @@ tracing:
 ```
 
 !!! warning
-    Traefik is able to send data over the compact thrift protocol to the [Jaeger agent](https://www.jaegertracing.io/docs/deployment/#agent)
-    or a [Jaeger collector](https://www.jaegertracing.io/docs/deployment/#collector).
+Traefik is able to send data over the compact thrift protocol to the [Jaeger agent](https://www.jaegertracing.io/docs/deployment/#agent)
+or a [Jaeger collector](https://www.jaegertracing.io/docs/deployment/#collector).
 
 !!! info
-    All Jaeger configuration can be overridden by [environment variables](https://github.com/jaegertracing/jaeger-client-go#environment-variables)
+All Jaeger configuration can be overridden by [environment variables](https://github.com/jaegertracing/jaeger-client-go#environment-variables)
 
 #### `samplingServerURL`
 
@@ -219,6 +219,7 @@ tracing:
 ```
 
 ### `collector`
+
 #### `endpoint`
 
 _Optional, Default=""_
@@ -229,7 +230,7 @@ Collector Endpoint instructs the reporter to send spans to the Jaeger Collector 
 tracing:
   jaeger:
     collector:
-        endpoint: http://127.0.0.1:14268/api/traces?format=jaeger.thrift
+      endpoint: http://127.0.0.1:14268/api/traces?format=jaeger.thrift
 ```
 
 ```toml tab="File (TOML)"
@@ -252,7 +253,7 @@ User instructs the reporter to include a user for basic HTTP authentication when
 tracing:
   jaeger:
     collector:
-        user: my-user
+      user: my-user
 ```
 
 ```toml tab="File (TOML)"
@@ -275,7 +276,7 @@ Password instructs the reporter to include a password for basic HTTP authenticat
 tracing:
   jaeger:
     collector:
-        password: my-password
+      password: my-password
 ```
 
 ```toml tab="File (TOML)"

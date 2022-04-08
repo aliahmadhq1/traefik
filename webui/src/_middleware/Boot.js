@@ -1,44 +1,41 @@
-import { APP } from '../_helpers/APP'
-import Helps from '../_helpers/Helps'
+import { APP } from "../_helpers/APP";
+import Helps from "../_helpers/Helps";
 
 const Boot = {
-  install (Vue, options) {
+  install(Vue, options) {
     Vue.mixin({
-      data () {
-        return {
-        }
+      data() {
+        return {};
       },
       computed: {
-        api () {
-          return APP.config.apiUrl
+        api() {
+          return APP.config.apiUrl;
         },
-        env () {
-          return APP.config.env
+        env() {
+          return APP.config.env;
         },
-        platformUrl () {
-          return APP.config.platformUrl
+        platformUrl() {
+          return APP.config.platformUrl;
         },
-        appThumbStyle () {
+        appThumbStyle() {
           return {
-            right: '2px',
-            borderRadius: '2px',
-            backgroundColor: '#dcdcdc',
-            width: '6px',
-            opacity: 0.75
-          }
-        }
+            right: "2px",
+            borderRadius: "2px",
+            backgroundColor: "#dcdcdc",
+            width: "6px",
+            opacity: 0.75,
+          };
+        },
       },
-      methods: {
-      },
+      methods: {},
       filters: {
-        capFirstLetter (value) {
-          return Helps.capFirstLetter(value)
-        }
+        capFirstLetter(value) {
+          return Helps.capFirstLetter(value);
+        },
       },
-      created () {
-      }
-    })
-  }
-}
+      created() {},
+    });
+  },
+};
 
-export default Boot
+export default Boot;

@@ -4,8 +4,8 @@ global:
 serversTransport:
   insecureSkipVerify: true
   rootCAs:
-  - foobar
-  - foobar
+    - foobar
+    - foobar
   maxIdleConnsPerHost: 42
   forwardingTimeouts:
     dialTimeout: 42
@@ -25,13 +25,13 @@ entryPoints:
     proxyProtocol:
       insecure: true
       trustedIPs:
-      - foobar
-      - foobar
+        - foobar
+        - foobar
     forwardedHeaders:
       insecure: true
       trustedIPs:
-      - foobar
-      - foobar
+        - foobar
+        - foobar
     http3:
       advertisedPort: 42
     udp:
@@ -44,20 +44,20 @@ entryPoints:
           permanent: true
           priority: 42
       middlewares:
-      - foobar
-      - foobar
+        - foobar
+        - foobar
       tls:
         options: foobar
         certResolver: foobar
         domains:
-        - main: foobar
-          sans:
-          - foobar
-          - foobar
-        - main: foobar
-          sans:
-          - foobar
-          - foobar
+          - main: foobar
+            sans:
+              - foobar
+              - foobar
+          - main: foobar
+            sans:
+              - foobar
+              - foobar
 providers:
   providersThrottleDuration: 42
   docker:
@@ -110,8 +110,8 @@ providers:
     token: foobar
     certAuthFilePath: foobar
     namespaces:
-    - foobar
-    - foobar
+      - foobar
+      - foobar
     labelSelector: foobar
     ingressClass: foobar
     throttleDuration: 42s
@@ -125,8 +125,8 @@ providers:
     token: foobar
     certAuthFilePath: foobar
     namespaces:
-    - foobar
-    - foobar
+      - foobar
+      - foobar
     allowCrossNamespace: true
     labelSelector: foobar
     ingressClass: foobar
@@ -136,8 +136,8 @@ providers:
     token: foobar
     certAuthFilePath: foobar
     namespaces:
-    - foobar
-    - foobar
+      - foobar
+      - foobar
     labelSelector: foobar
     throttleDuration: 42s
   rest:
@@ -183,8 +183,8 @@ providers:
     refreshSeconds: 42
     defaultRule: foobar
     clusters:
-    - foobar
-    - foobar
+      - foobar
+      - foobar
     autoDiscoverClusters: true
     region: foobar
     accessKeyID: foobar
@@ -192,8 +192,8 @@ providers:
   consul:
     rootKey: foobar
     endpoints:
-    - foobar
-    - foobar
+      - foobar
+      - foobar
     username: foobar
     password: foobar
     namespace: foobar
@@ -207,8 +207,8 @@ providers:
   etcd:
     rootKey: foobar
     endpoints:
-    - foobar
-    - foobar
+      - foobar
+      - foobar
     username: foobar
     password: foobar
     namespace: foobar
@@ -222,8 +222,8 @@ providers:
   zooKeeper:
     rootKey: foobar
     endpoints:
-    - foobar
-    - foobar
+      - foobar
+      - foobar
     username: foobar
     password: foobar
     namespace: foobar
@@ -237,8 +237,8 @@ providers:
   redis:
     rootKey: foobar
     endpoints:
-    - foobar
-    - foobar
+      - foobar
+      - foobar
     username: foobar
     password: foobar
     namespace: foobar
@@ -269,8 +269,8 @@ api:
 metrics:
   prometheus:
     buckets:
-    - 42
-    - 42
+      - 42
+      - 42
     addEntryPointsLabels: true
     addRoutersLabels: true
     addServicesLabels: true
@@ -328,8 +328,8 @@ accessLog:
   format: foobar
   filters:
     statusCodes:
-    - foobar
-    - foobar
+      - foobar
+      - foobar
     retryAttempts: true
     minDuration: 42
   fields:
@@ -409,8 +409,8 @@ certificatesResolvers:
         provider: foobar
         delayBeforeCheck: 42
         resolvers:
-        - foobar
-        - foobar
+          - foobar
+          - foobar
         disablePropagationCheck: true
       httpChallenge:
         entryPoint: foobar
@@ -430,8 +430,8 @@ certificatesResolvers:
         provider: foobar
         delayBeforeCheck: 42
         resolvers:
-        - foobar
-        - foobar
+          - foobar
+          - foobar
         disablePropagationCheck: true
       httpChallenge:
         entryPoint: foobar

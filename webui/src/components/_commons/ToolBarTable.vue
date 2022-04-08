@@ -10,14 +10,24 @@
       rounded
       unelevated
       :options="[
-          {label: 'All Status', value: ''},
-          {label: 'Success', value: 'enabled'},
-          {label: 'Warnings', value: 'warning'},
-          {label: 'Errors', value: 'disabled'}
-        ]"
+        { label: 'All Status', value: '' },
+        { label: 'Success', value: 'enabled' },
+        { label: 'Warnings', value: 'warning' },
+        { label: 'Errors', value: 'disabled' },
+      ]"
     />
     <q-space />
-    <q-input v-model="getFilter" rounded dense outlined type="search" debounce="500" placeholder="Search" :bg-color="$q.dark.isActive ? undefined : 'white'" class="bar-search">
+    <q-input
+      v-model="getFilter"
+      rounded
+      dense
+      outlined
+      type="search"
+      debounce="500"
+      placeholder="Search"
+      :bg-color="$q.dark.isActive ? undefined : 'white'"
+      class="bar-search"
+    >
       <template v-slot:append>
         <q-icon name="eva-search-outline" />
       </template>
@@ -26,92 +36,86 @@
 </template>
 
 <script>
-import Helps from '../../_helpers/Helps'
+import Helps from "../../_helpers/Helps";
 
 export default {
-  name: 'ToolBarTable',
-  props: ['status', 'filter'],
-  components: {
-
+  name: "ToolBarTable",
+  props: ["status", "filter"],
+  components: {},
+  data() {
+    return {};
   },
-  data () {
-    return {
-    }
-  },
-  mounted () {
-    this.routeToState(this.$route)
+  mounted() {
+    this.routeToState(this.$route);
   },
   computed: {
     getStatus: {
-      get () {
-        return this.status
+      get() {
+        return this.status;
       },
-      set (newValue) {
-        this.$emit('update:status', newValue)
-        this.stateToRoute(this.$route, { status: newValue })
-      }
+      set(newValue) {
+        this.$emit("update:status", newValue);
+        this.stateToRoute(this.$route, { status: newValue });
+      },
     },
     getFilter: {
-      get () {
-        return this.filter
+      get() {
+        return this.filter;
       },
-      set (newValue) {
-        this.$emit('update:filter', newValue)
-        this.stateToRoute(this.$route, { filter: newValue })
-      }
-    }
+      set(newValue) {
+        this.$emit("update:filter", newValue);
+        this.stateToRoute(this.$route, { filter: newValue });
+      },
+    },
   },
   watch: {
-    $route (to, from) {
-      this.routeToState(to)
-    }
+    $route(to, from) {
+      this.routeToState(to);
+    },
   },
   methods: {
-    routeToState (route) {
+    routeToState(route) {
       for (const query in route.query) {
-        this.$emit(`update:${query}`, route.query[query])
+        this.$emit(`update:${query}`, route.query[query]);
       }
     },
-    stateToRoute (route, values) {
+    stateToRoute(route, values) {
       this.$router.push({
         path: route.path,
         query: Helps.removeEmptyObjects({
           ...route.query,
-          ...values
-        })
-      })
-    }
+          ...values,
+        }),
+      });
+    },
   },
-  created () {
-
-  }
-}
+  created() {},
+};
 </script>
 
 <style scoped lang="scss">
-  @import "../../css/sass/variables";
+@import "../../css/sass/variables";
 
-  .q-toolbar {
-    padding: 0;
-    /deep/ .bar-toggle {
-      .q-btn {
-        font-weight: 600;
-        margin-right: 12px;
-        &.q-btn--rounded {
-          border-radius: 12px;
-        }
-        &.bg-app-toggle {
-          color: $accent !important;
-        }
+.q-toolbar {
+  padding: 0;
+  /deep/ .bar-toggle {
+    .q-btn {
+      font-weight: 600;
+      margin-right: 12px;
+      &.q-btn--rounded {
+        border-radius: 12px;
       }
-    }
-    /deep/ .bar-search {
-      .q-field__inner {
-        .q-field__control {
-          border-radius: 12px;
-        }
+      &.bg-app-toggle {
+        color: $accent !important;
       }
     }
   }
-
+  /deep/ .bar-search {
+    .q-field__inner {
+      .q-field__control {
+        border-radius: 12px;
+      }
+    }
+  }
+}
 </style>

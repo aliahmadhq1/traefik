@@ -26,13 +26,13 @@ metadata:
   name: traefik-dashboard
 spec:
   routes:
-  - match: Host(`traefik.example.com`)
-    kind: Rule
-    services:
-    - name: api@internal
-      kind: TraefikService
-    middlewares:
-      - name: auth
+    - match: Host(`traefik.example.com`)
+      kind: Rule
+      services:
+        - name: api@internal
+          kind: TraefikService
+      middlewares:
+        - name: auth
 ---
 apiVersion: traefik.containo.us/v1alpha1
 kind: Middleware

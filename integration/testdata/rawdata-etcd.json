@@ -1,26 +1,17 @@
 {
   "routers": {
     "Router0@etcd": {
-      "entryPoints": [
-        "web"
-      ],
-      "middlewares": [
-        "compressor@etcd",
-        "striper@etcd"
-      ],
+      "entryPoints": ["web"],
+      "middlewares": ["compressor@etcd", "striper@etcd"],
       "service": "simplesvc",
       "rule": "Host(`kv1.localhost`)",
       "priority": 42,
       "tls": {},
       "status": "enabled",
-      "using": [
-        "web"
-      ]
+      "using": ["web"]
     },
     "Router1@etcd": {
-      "entryPoints": [
-        "web"
-      ],
+      "entryPoints": ["web"],
       "service": "simplesvc",
       "rule": "Host(`kv2.localhost`)",
       "priority": 42,
@@ -28,41 +19,27 @@
         "domains": [
           {
             "main": "aaa.localhost",
-            "sans": [
-              "aaa.aaa.localhost",
-              "bbb.aaa.localhost"
-            ]
+            "sans": ["aaa.aaa.localhost", "bbb.aaa.localhost"]
           },
           {
             "main": "bbb.localhost",
-            "sans": [
-              "aaa.bbb.localhost",
-              "bbb.bbb.localhost"
-            ]
+            "sans": ["aaa.bbb.localhost", "bbb.bbb.localhost"]
           }
         ]
       },
       "status": "enabled",
-      "using": [
-        "web"
-      ]
+      "using": ["web"]
     },
     "api@internal": {
-      "entryPoints": [
-        "traefik"
-      ],
+      "entryPoints": ["traefik"],
       "service": "api@internal",
       "rule": "PathPrefix(`/api`)",
       "priority": 2147483646,
       "status": "enabled",
-      "using": [
-        "traefik"
-      ]
+      "using": ["traefik"]
     },
     "dashboard@internal": {
-      "entryPoints": [
-        "traefik"
-      ],
+      "entryPoints": ["traefik"],
       "middlewares": [
         "dashboard_redirect@internal",
         "dashboard_stripprefix@internal"
@@ -71,18 +48,14 @@
       "rule": "PathPrefix(`/`)",
       "priority": 2147483645,
       "status": "enabled",
-      "using": [
-        "traefik"
-      ]
+      "using": ["traefik"]
     }
   },
   "middlewares": {
     "compressor@etcd": {
       "compress": {},
       "status": "enabled",
-      "usedBy": [
-        "Router0@etcd"
-      ]
+      "usedBy": ["Router0@etcd"]
     },
     "dashboard_redirect@internal": {
       "redirectRegex": {
@@ -91,34 +64,22 @@
         "permanent": true
       },
       "status": "enabled",
-      "usedBy": [
-        "dashboard@internal"
-      ]
+      "usedBy": ["dashboard@internal"]
     },
     "dashboard_stripprefix@internal": {
       "stripPrefix": {
-        "prefixes": [
-          "/dashboard/",
-          "/dashboard"
-        ]
+        "prefixes": ["/dashboard/", "/dashboard"]
       },
       "status": "enabled",
-      "usedBy": [
-        "dashboard@internal"
-      ]
+      "usedBy": ["dashboard@internal"]
     },
     "striper@etcd": {
       "stripPrefix": {
-        "prefixes": [
-          "foo",
-          "bar"
-        ],
+        "prefixes": ["foo", "bar"],
         "forceSlash": true
       },
       "status": "enabled",
-      "usedBy": [
-        "Router0@etcd"
-      ]
+      "usedBy": ["Router0@etcd"]
     }
   },
   "services": {
@@ -139,15 +100,11 @@
     },
     "api@internal": {
       "status": "enabled",
-      "usedBy": [
-        "api@internal"
-      ]
+      "usedBy": ["api@internal"]
     },
     "dashboard@internal": {
       "status": "enabled",
-      "usedBy": [
-        "dashboard@internal"
-      ]
+      "usedBy": ["dashboard@internal"]
     },
     "mirror@etcd": {
       "mirroring": {
@@ -182,10 +139,7 @@
         "passHostHeader": true
       },
       "status": "enabled",
-      "usedBy": [
-        "Router0@etcd",
-        "Router1@etcd"
-      ],
+      "usedBy": ["Router0@etcd", "Router1@etcd"],
       "serverStatus": {
         "http://10.0.1.1:8888": "UP",
         "http://10.0.1.1:8889": "UP"

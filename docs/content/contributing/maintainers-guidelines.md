@@ -40,21 +40,21 @@ There are lots of areas where you can contribute to the project,
 but we can suggest you start with activities such as:
 
 - PR reviewing.
-    - According to our guidelines we require you have at least 3 reviewers,
-      thus you can review a PR and leave the relevant comment if it is necessary.
+  - According to our guidelines we require you have at least 3 reviewers,
+    thus you can review a PR and leave the relevant comment if it is necessary.
 - Participating in a daily [issue triage](https://github.com/traefik/contributors-guide/blob/master/issue_triage.md).
-    - The process helps to understand and prioritize the reported issue according to its importance and severity.
-      This is crucial to learn how our users implement Traefik.
-      Each of the issues that are labeled as bug/possible bug/confirmed requires a reproducible use case. 
-      You can help in creating a reproducible use case if it has not been added to the issue
-      or use the sample code provided by the reporter.
-      Typically, a simple docker compose should be enough to reproduce the issue.
+  - The process helps to understand and prioritize the reported issue according to its importance and severity.
+    This is crucial to learn how our users implement Traefik.
+    Each of the issues that are labeled as bug/possible bug/confirmed requires a reproducible use case.
+    You can help in creating a reproducible use case if it has not been added to the issue
+    or use the sample code provided by the reporter.
+    Typically, a simple docker compose should be enough to reproduce the issue.
 - Code contribution.
 - Documentation contribution.
-    - Technical documentation is one of the most important components of the product.
-      The ability to set up a testing environment in a few minutes,
-      using the official documentation,
-      is a game changer.
+  - Technical documentation is one of the most important components of the product.
+    The ability to set up a testing environment in a few minutes,
+    using the official documentation,
+    is a game changer.
 - You will be listed on our Maintainers Github page
   as well as on our website in the section [maintainers](maintainers.md).
 - We will be promoting you on social channels (mostly on Twitter).
@@ -66,7 +66,7 @@ but we can suggest you start with activities such as:
 ## Communicating
 
 - All of our maintainers are added to Slack #traefik-maintainers channel that belongs to Traefik labs workspace.
-  Having the team in one place helps us to communicate effectively. 
+  Having the team in one place helps us to communicate effectively.
   You can reach Traefik core developers directly,
   which offers the possibility to discuss issues, pull requests, enhancements more efficiently
   and get the feedback almost immediately.
@@ -79,9 +79,9 @@ but we can suggest you start with activities such as:
   other important project-related announcements.
 
 - At 5:00 PM CET every day we review all the created issues that have been reported,
-  assign them the appropriate *[labels](maintainers.md#labels)*
+  assign them the appropriate _[labels](maintainers.md#labels)_
   and prioritize them based on the severity of the problem.
-  The process is called *[issue triaging](https://github.com/traefik/contributors-guide/blob/master/issue_triage.md)*.
+  The process is called _[issue triaging](https://github.com/traefik/contributors-guide/blob/master/issue_triage.md)_.
   Each of the maintainers is welcome to join the meeting.
   For that purpose, we use a dedicated Discord server
   where you are invited once you have become the official maintainer.
@@ -92,12 +92,13 @@ In order to keep the core team efficient and dynamic,
 maintainers' activity and involvement will be reviewed on a regular basis.
 
 - Has the maintainer engaged with the team and the community by meeting two or more of these benchmarks in the past six months?
-    - Has the maintainer participated in at least two or three maintainer meetings?
-    - Substantial review of at least one or two PRs from either contributors or maintainers.
-    - Opened at least one or two bug fixes or feature request PRs
-      that were eventually merged (or on a trajectory for merge).
-    - Substantial participation in the Help Wanted program (answered questions, helped identify issues, applied guidelines from the Help Wanted guide to open issues).
-    - Substantial participation with the community in general.
+
+  - Has the maintainer participated in at least two or three maintainer meetings?
+  - Substantial review of at least one or two PRs from either contributors or maintainers.
+  - Opened at least one or two bug fixes or feature request PRs
+    that were eventually merged (or on a trajectory for merge).
+  - Substantial participation in the Help Wanted program (answered questions, helped identify issues, applied guidelines from the Help Wanted guide to open issues).
+  - Substantial participation with the community in general.
 
 - Has the maintainer shown a consistent pattern of helpful,
   non-threatening,
@@ -107,7 +108,7 @@ maintainers' activity and involvement will be reviewed on a regular basis.
 
 - Be able to put yourself in users’ shoes.
 - Be open-minded and respectful with other maintainers and other community members.
-- Keep the communication public - 
+- Keep the communication public -
   if anyone tries to communicate with you directly,
   ask him politely to move the conversation to a public communication channel.
 - Stay away from defensive comments.
@@ -117,7 +118,7 @@ maintainers' activity and involvement will be reviewed on a regular basis.
   none of us is able to predict your thoughts.
 - There are a lot of use cases of using Traefik
   and even more issues that are difficult to reproduce.
-  If the issue can’t be replicated due to a lack of reproducible case (a simple docker compose should be enough) - 
+  If the issue can’t be replicated due to a lack of reproducible case (a simple docker compose should be enough) -
   set your time limits while working on the issue
   and express clearly that you were not able to replicate it.
   You can come back later to that case.

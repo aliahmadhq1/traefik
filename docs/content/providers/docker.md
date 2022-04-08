@@ -127,6 +127,7 @@ When exposing containers that are configured with [host networking](https://docs
 the IP address of the host is resolved as follows:
 
 <!-- TODO: verify and document the swarm mode case with container.Node.IPAddress coming from the API -->
+
 - try a lookup of `host.docker.internal`
 - if the lookup was unsuccessful, fall back to `127.0.0.1`
 
@@ -214,7 +215,7 @@ docker service create \
 ```
 
 ```yml tab="With Docker Compose"
-version: '3'
+version: "3"
 
 services:
   traefik:
@@ -423,7 +424,7 @@ providers:
 
 ### `defaultRule`
 
-_Optional, Default=```Host(`{{ normalize .Name }}`)```_
+_Optional, Default=`` Host(`{{ normalize .Name }}`) ``_
 
 The `defaultRule` option defines what routing rule to apply to a container if no rule is defined by a label.
 
@@ -435,7 +436,7 @@ and the template has access to all the labels defined on this container.
 ```yaml tab="File (YAML)"
 providers:
   docker:
-    defaultRule: "Host(`{{ .Name }}.{{ index .Labels \"customLabel\"}}`)"
+    defaultRule: 'Host(`{{ .Name }}.{{ index .Labels "customLabel"}}`)'
     # ...
 ```
 
@@ -554,7 +555,7 @@ The `constraints` option can be set to an expression that Traefik matches agains
 to create any route for that container. If none of the container tags match the expression, no route for that container is
 created. If the expression is empty, all detected containers are included.
 
-The expression syntax is based on the ```Tag(`tag`)```, and ```TagRegex(`tag`)``` functions,
+The expression syntax is based on the `` Tag(`tag`) ``, and `` TagRegex(`tag`) `` functions,
 as well as the usual boolean logic, as shown in examples below.
 
 ??? example "Constraints Expression Examples"

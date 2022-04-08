@@ -1,4 +1,3 @@
-
 ```yaml tab="Docker"
 ## Dynamic configuration
 labels:
@@ -26,11 +25,11 @@ spec:
   entryPoints:
     - websecure
   routes:
-  - match: (Host(`example.com`) && Path(`/blog`)) || Host(`blog.example.org`)
-    kind: Rule
-    services:
-    - name: blog
-      port: 8080
+    - match: (Host(`example.com`) && Path(`/blog`)) || Host(`blog.example.org`)
+      kind: Rule
+      services:
+        - name: blog
+          port: 8080
   tls:
     certResolver: myresolver
 ```

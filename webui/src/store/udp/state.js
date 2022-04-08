@@ -2,5 +2,5 @@ export default {
   allRouters: {},
   routerByName: {},
   allServices: {},
-  serviceByName: {}
-}
+  serviceByName: {},
+};

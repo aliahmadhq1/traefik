@@ -66,10 +66,11 @@ http:
   routers:
     # Define a connection between requests and services
     to-whoami:
-      rule: "Host(`example.com`) && PathPrefix(`/whoami/`)"
-       # If the rule matches, applies the middleware
+      rule:
+        "Host(`example.com`) && PathPrefix(`/whoami/`)"
+        # If the rule matches, applies the middleware
       middlewares:
-      - test-user
+        - test-user
       # If the rule matches, forward to the whoami service (declared below)
       service: whoami
 
@@ -78,14 +79,14 @@ http:
     test-user:
       basicAuth:
         users:
-        - test:$apr1$H6uskkkW$IgXLP6ewTrSuBkTrqE8wj/
+          - test:$apr1$H6uskkkW$IgXLP6ewTrSuBkTrqE8wj/
 
   services:
     # Define how to reach an existing service on our infrastructure
     whoami:
       loadBalancer:
         servers:
-        - url: http://private/whoami-service
+          - url: http://private/whoami-service
 ```
 
 ```toml tab="TOML"

@@ -2,17 +2,13 @@
   "http": {
     "routers": {
       "api": {
-        "entryPoints": [
-          "traefik"
-        ],
+        "entryPoints": ["traefik"],
         "service": "api@internal",
         "rule": "PathPrefix(`/api`)",
         "priority": 2147483646
       },
       "dashboard": {
-        "entryPoints": [
-          "traefik"
-        ],
+        "entryPoints": ["traefik"],
         "middlewares": [
           "dashboard_redirect@internal",
           "dashboard_stripprefix@internal"
@@ -22,33 +18,25 @@
         "priority": 2147483645
       },
       "debug": {
-        "entryPoints": [
-          "traefik"
-        ],
+        "entryPoints": ["traefik"],
         "service": "api@internal",
         "rule": "PathPrefix(`/debug`)",
         "priority": 2147483646
       },
       "ping": {
-        "entryPoints": [
-          "test"
-        ],
+        "entryPoints": ["test"],
         "service": "ping@internal",
         "rule": "PathPrefix(`/ping`)",
         "priority": 2147483647
       },
       "prometheus": {
-        "entryPoints": [
-          "test"
-        ],
+        "entryPoints": ["test"],
         "service": "prometheus@internal",
         "rule": "PathPrefix(`/metrics`)",
         "priority": 2147483647
       },
       "rest": {
-        "entryPoints": [
-          "traefik"
-        ],
+        "entryPoints": ["traefik"],
         "service": "rest@internal",
         "rule": "PathPrefix(`/api/providers`)",
         "priority": 2147483647
@@ -64,10 +52,7 @@
       },
       "dashboard_stripprefix": {
         "stripPrefix": {
-          "prefixes": [
-            "/dashboard/",
-            "/dashboard"
-          ]
+          "prefixes": ["/dashboard/", "/dashboard"]
         }
       }
     },
