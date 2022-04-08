@@ -343,13 +343,13 @@ func MakeDefaultRuleTemplate(defaultRule string, funcMap template.FuncMap) (*tem
 func BuildTCPRouterConfiguration(ctx context.Context, configuration *dynamic.TCPConfiguration) {
 	for routerName, router := range configuration.Routers {
 		loggerRouter := log.FromContext(ctx).WithField(log.RouterName, routerName)
-		if len(router.Rule) == 0 {
+		if router.Rule == "" {
 			delete(configuration.Routers, routerName)
 			loggerRouter.Errorf("Empty rule")
 			continue
 		}
 
-		if len(router.Service) == 0 {
+		if router.Service == "" {
 			if len(configuration.Services) > 1 {
 				delete(configuration.Routers, routerName)
 				loggerRouter.
@@ -399,7 +399,7 @@ func BuildRouterConfiguration(ctx context.Context, configuration *dynamic.HTTPCo
 
 	for routerName, router := range configuration.Routers {
 		loggerRouter := log.FromContext(ctx).WithField(log.RouterName, routerName)
-		if len(router.Rule) == 0 {
+		if router.Rule == "" {
 			writer := &bytes.Buffer{}
 			if err := defaultRuleTpl.Execute(writer, model); err != nil {
 				loggerRouter.Errorf("Error while parsing default rule: %v", err)
@@ -408,14 +408,14 @@ func BuildRouterConfiguration(ctx context.Context, configuration *dynamic.HTTPCo
 			}
 
 			router.Rule = writer.String()
-			if len(router.Rule) == 0 {
+			if router.Rule == "" {
 				loggerRouter.Error("Undefined rule")
 				delete(configuration.Routers, routerName)
 				continue
 			}
 		}
 
-		if len(router.Service) == 0 {
+		if router.Service == "" {
 			if len(configuration.Services) > 1 {
 				delete(configuration.Routers, routerName)
 				loggerRouter.

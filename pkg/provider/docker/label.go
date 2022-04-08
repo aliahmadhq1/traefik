@@ -46,7 +46,7 @@ func getStringMultipleStrict(labels map[string]string, labelNames ...string) (ma
 	for _, name := range labelNames {
 		value := getStringValue(labels, name, "")
 		// Error out only if one of them is not defined.
-		if len(value) == 0 {
+		if value == "" {
 			return nil, fmt.Errorf("label not found: %s", name)
 		}
 		foundLabels[name] = value

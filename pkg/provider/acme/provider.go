@@ -131,7 +131,7 @@ func (p *Provider) Init() error {
 	ctx := log.With(context.Background(), log.Str(log.ProviderName, p.ResolverName+".acme"))
 	logger := log.FromContext(ctx)
 
-	if len(p.Configuration.Storage) == 0 {
+	if p.Configuration.Storage == "" {
 		return errors.New("unable to initialize ACME provider with no storage location for the certificates")
 	}
 
@@ -273,8 +273,8 @@ func (p *Provider) getClient() (*lego.Client, error) {
 		return nil, err
 	}
 
-	if (p.DNSChallenge == nil || len(p.DNSChallenge.Provider) == 0) &&
-		(p.HTTPChallenge == nil || len(p.HTTPChallenge.EntryPoint) == 0) &&
+	if (p.DNSChallenge == nil || p.DNSChallenge.Provider == "") &&
+		(p.HTTPChallenge == nil || p.HTTPChallenge.EntryPoint == "") &&
 		p.TLSChallenge == nil {
 		return nil, errors.New("ACME challenge not specified, please select TLS or HTTP or DNS Challenge")
 	}
@@ -331,7 +331,7 @@ func (p *Provider) getClient() (*lego.Client, error) {
 }
 
 func (p *Provider) initAccount(ctx context.Context) (*Account, error) {
-	if p.account == nil || len(p.account.Email) == 0 {
+	if p.account == nil || p.account.Email == "" {
 		var err error
 		p.account, err = NewAccount(ctx, p.Email, p.KeyType)
 		if err != nil {

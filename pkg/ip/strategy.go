@@ -62,7 +62,7 @@ func (s *PoolStrategy) GetIP(req *http.Request) string {
 
 	for i := len(xffs) - 1; i >= 0; i-- {
 		xffTrimmed := strings.TrimSpace(xffs[i])
-		if len(xffTrimmed) == 0 {
+		if xffTrimmed == "" {
 			continue
 		}
 		if contain, _ := s.Checker.Contains(xffTrimmed); !contain {

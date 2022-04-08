@@ -487,7 +487,7 @@ func createForwardAuthMiddleware(k8sClient Client, namespace string, auth *v1alp
 	if auth == nil {
 		return nil, nil
 	}
-	if len(auth.Address) == 0 {
+	if auth.Address == "" {
 		return nil, fmt.Errorf("forward authentication requires an address")
 	}
 
@@ -714,7 +714,7 @@ func createChainMiddleware(ctx context.Context, namespace string, chain *v1alpha
 		}
 
 		ns := mi.Namespace
-		if len(ns) == 0 {
+		if ns == "" {
 			ns = namespace
 		}
 		mds = append(mds, makeID(ns, mi.Name))
@@ -866,7 +866,7 @@ func makeID(namespace, name string) string {
 
 func shouldProcessIngress(ingressClass, ingressClassAnnotation string) bool {
 	return ingressClass == ingressClassAnnotation ||
-		(len(ingressClass) == 0 && ingressClassAnnotation == traefikDefaultIngressClass)
+		(ingressClass == "" && ingressClassAnnotation == traefikDefaultIngressClass)
 }
 
 func getTLS(k8sClient Client, secretName, namespace string) (*tls.CertAndStores, error) {

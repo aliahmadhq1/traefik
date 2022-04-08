@@ -1289,7 +1289,7 @@ func extractRule(routeRule v1alpha2.HTTPRouteRule, hostRule string) (string, err
 		return rule + matchesRules[0], nil
 	}
 
-	if len(rule) == 0 {
+	if rule == "" {
 		return strings.Join(matchesRules, " || "), nil
 	}
 

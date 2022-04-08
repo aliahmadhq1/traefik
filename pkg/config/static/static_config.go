@@ -287,7 +287,7 @@ func (c *Configuration) ValidateConfiguration() error {
 			continue
 		}
 
-		if len(resolver.ACME.Storage) == 0 {
+		if resolver.ACME.Storage == "" {
 			return fmt.Errorf("unable to initialize certificates resolver %q with no storage location for the certificates", name)
 		}
 
@@ -301,7 +301,7 @@ func (c *Configuration) ValidateConfiguration() error {
 }
 
 func getSafeACMECAServer(caServerSrc string) string {
-	if len(caServerSrc) == 0 {
+	if caServerSrc == "" {
 		return DefaultAcmeCAServer
 	}
 

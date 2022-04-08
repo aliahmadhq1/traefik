@@ -115,7 +115,7 @@ func host(route *mux.Route, hosts ...string) error {
 
 	route.MatcherFunc(func(req *http.Request, _ *mux.RouteMatch) bool {
 		reqHost := requestdecorator.GetCanonizedHost(req.Context())
-		if len(reqHost) == 0 {
+		if reqHost == "" {
 			// If the request is an HTTP/1.0 request, then a Host may not be defined.
 			if req.ProtoAtLeast(1, 1) {
 				log.FromContext(req.Context()).Warnf("Could not retrieve CanonizedHost, rejecting %s", req.Host)
@@ -301,7 +301,7 @@ func checkRule(rule *tree) error {
 	}
 
 	for _, v := range rule.value {
-		if len(v) == 0 {
+		if v == "" {
 			return fmt.Errorf("empty args for matcher %s, %v", rule.matcher, rule.value)
 		}
 	}

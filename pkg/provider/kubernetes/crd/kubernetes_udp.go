@@ -27,7 +27,7 @@ func (p *Provider) loadIngressRouteUDPConfiguration(ctx context.Context, client 
 		}
 
 		ingressName := ingressRouteUDP.Name
-		if len(ingressName) == 0 {
+		if ingressName == "" {
 			ingressName = ingressRouteUDP.GenerateName
 		}
 

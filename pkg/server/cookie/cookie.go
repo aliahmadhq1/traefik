@@ -12,7 +12,7 @@ const cookieNameLength = 6
 
 // GetName of a cookie.
 func GetName(cookieName, backendName string) string {
-	if len(cookieName) != 0 {
+	if cookieName != "" {
 		return sanitizeName(cookieName)
 	}
 

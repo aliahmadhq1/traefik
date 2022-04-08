@@ -173,7 +173,7 @@ func (p *Provider) filterInstance(ctx context.Context, instance ecsInstance) boo
 		return false
 	}
 
-	if len(instance.machine.privateIP) == 0 {
+	if instance.machine.privateIP == "" {
 		logger.Debugf("Filtering ecs instance without an ip address %s (%s)", instance.Name, instance.ID)
 		return false
 	}
@@ -294,7 +294,7 @@ func (p *Provider) getIPPort(instance ecsInstance, serverPort string) (string, s
 
 	ip = p.getIPAddress(instance)
 	port = getPort(instance, serverPort)
-	if len(ip) == 0 {
+	if ip == "" {
 		return "", "", fmt.Errorf("unable to find the IP address for the instance %q: the server is ignored", instance.Name)
 	}
 

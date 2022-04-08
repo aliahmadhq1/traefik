@@ -188,7 +188,7 @@ func (c *client) SendAnonDynConf(ctx context.Context, config dynamic.Configurati
 
 // SendInstanceInfo sends instance information to Pilot.
 func (c *client) SendInstanceInfo(ctx context.Context, pilotMetrics []metrics.PilotMetric) error {
-	if len(c.uuid) == 0 {
+	if c.uuid == "" {
 		var err error
 		c.uuid, err = c.createUUID()
 		if err != nil {

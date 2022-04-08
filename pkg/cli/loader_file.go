@@ -74,7 +74,7 @@ func loadConfigFiles(configFile string, element interface{}) (string, error) {
 		return "", err
 	}
 
-	if len(filePath) == 0 {
+	if filePath == "" {
 		return "", nil
 	}
 

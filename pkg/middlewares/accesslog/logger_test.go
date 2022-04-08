@@ -679,7 +679,7 @@ func TestNewLogHandlerOutputStdout(t *testing.T) {
 func assertValidLogData(t *testing.T, expected string, logData []byte) {
 	t.Helper()
 
-	if len(expected) == 0 {
+	if expected == "" {
 		assert.Zero(t, len(logData))
 		t.Log(string(logData))
 		return

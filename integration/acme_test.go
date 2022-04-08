@@ -418,16 +418,16 @@ func (s *AcmeSuite) TestNoValidLetsEncryptServer(c *check.C) {
 
 // Doing an HTTPS request and test the response certificate.
 func (s *AcmeSuite) retrieveAcmeCertificate(c *check.C, testCase acmeTestCase) {
-	if len(testCase.template.PortHTTP) == 0 {
+	if testCase.template.PortHTTP == "" {
 		testCase.template.PortHTTP = ":5002"
 	}
 
-	if len(testCase.template.PortHTTPS) == 0 {
+	if testCase.template.PortHTTPS == "" {
 		testCase.template.PortHTTPS = ":5001"
 	}
 
 	for _, value := range testCase.template.Acme {
-		if len(value.ACME.CAServer) == 0 {
+		if value.ACME.CAServer == "" {
 			value.ACME.CAServer = s.getAcmeURL()
 		}
 	}

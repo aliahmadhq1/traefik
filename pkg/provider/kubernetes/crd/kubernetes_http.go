@@ -46,7 +46,7 @@ func (p *Provider) loadIngressRouteConfiguration(ctx context.Context, client Cli
 		}
 
 		ingressName := ingressRoute.Name
-		if len(ingressName) == 0 {
+		if ingressName == "" {
 			ingressName = ingressRoute.GenerateName
 		}
 
@@ -58,7 +58,7 @@ func (p *Provider) loadIngressRouteConfiguration(ctx context.Context, client Cli
 				continue
 			}
 
-			if len(route.Match) == 0 {
+			if route.Match == "" {
 				logger.Errorf("Empty match rule")
 				continue
 			}
@@ -123,7 +123,7 @@ func (p *Provider) loadIngressRouteConfiguration(ctx context.Context, client Cli
 					// Is a Kubernetes CRD reference, (i.e. not a cross-provider reference)
 					ns := ingressRoute.Spec.TLS.Options.Namespace
 					if !strings.Contains(tlsOptionsName, providerNamespaceSeparator) {
-						if len(ns) == 0 {
+						if ns == "" {
 							ns = ingressRoute.Namespace
 						}
 						tlsOptionsName = makeID(ns, tlsOptionsName)

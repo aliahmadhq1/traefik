@@ -46,7 +46,7 @@ func (s *ConsulCatalogSuite) waitToElectConsulLeader() error {
 	return try.Do(15*time.Second, func() error {
 		leader, err := s.consulClient.Status().Leader()
 
-		if err != nil || len(leader) == 0 {
+		if err != nil || leader == "" {
 			return fmt.Errorf("leader not found. %w", err)
 		}
 

@@ -45,7 +45,7 @@ func DecodeToNode(pairs []*store.KVPair, rootName string, filters ...string) (*p
 }
 
 func decodeToNode(root *parser.Node, path []string, value string) {
-	if len(root.Name) == 0 {
+	if root.Name == "" {
 		root.Name = path[0]
 	}
 
