@@ -307,7 +307,7 @@ The `accessControlAllowHeaders` indicates which header field names can be used a
 
 ### `accessControlAllowMethods`
 
-The  `accessControlAllowMethods` indicates which methods can be used during requests.
+The `accessControlAllowMethods` indicates which methods can be used during requests.
 
 ### `accessControlAllowOriginList`
 

@@ -2,17 +2,13 @@
   "http": {
     "routers": {
       "api": {
-        "entryPoints": [
-          "traefik"
-        ],
+        "entryPoints": ["traefik"],
         "service": "api@internal",
         "rule": "PathPrefix(`/api`)",
         "priority": 2147483646
       },
       "dashboard": {
-        "entryPoints": [
-          "traefik"
-        ],
+        "entryPoints": ["traefik"],
         "middlewares": [
           "dashboard_redirect@internal",
           "dashboard_stripprefix@internal"
@@ -32,10 +28,7 @@
       },
       "dashboard_stripprefix": {
         "stripPrefix": {
-          "prefixes": [
-            "/dashboard/",
-            "/dashboard"
-          ]
+          "prefixes": ["/dashboard/", "/dashboard"]
         }
       }
     },

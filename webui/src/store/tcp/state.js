@@ -4,5 +4,5 @@ export default {
   allServices: {},
   serviceByName: {},
   allMiddlewares: {},
-  middlewareByName: {}
-}
+  middlewareByName: {},
+};

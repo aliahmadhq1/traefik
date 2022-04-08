@@ -219,8 +219,8 @@ spec:
     sourceCriterion:
       ipStrategy:
         excludedIPs:
-        - 127.0.0.1/32
-        - 192.168.1.7
+          - 127.0.0.1/32
+          - 192.168.1.7
 ```
 
 ```yaml tab="Consul Catalog"

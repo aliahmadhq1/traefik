@@ -2,12 +2,8 @@
   "http": {
     "routers": {
       "web-to-443": {
-        "entryPoints": [
-          "web"
-        ],
-        "middlewares": [
-          "redirect-web-to-443"
-        ],
+        "entryPoints": ["web"],
+        "middlewares": ["redirect-web-to-443"],
         "service": "noop@internal",
         "rule": "HostRegexp(`{host:.+}`)"
       }

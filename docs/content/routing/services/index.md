@@ -114,9 +114,9 @@ Servers declare a single instance of your program.
 The `url` option point to a specific instance.
 
 !!! info ""
-    Paths in the servers' `url` have no effect.
-    If you want the requests to be sent to a specific path on your servers,
-    configure your [`routers`](../routers/index.md) to use a corresponding [middleware](../../middlewares/overview.md) (e.g. the [AddPrefix](../../middlewares/http/addprefix.md) or [ReplacePath](../../middlewares/http/replacepath.md)) middlewares.
+Paths in the servers' `url` have no effect.
+If you want the requests to be sent to a specific path on your servers,
+configure your [`routers`](../routers/index.md) to use a corresponding [middleware](../../middlewares/overview.md) (e.g. the [AddPrefix](../../middlewares/http/addprefix.md) or [ReplacePath](../../middlewares/http/replacepath.md)) middlewares.
 
 ??? example "A Service with One Server -- Using the [File Provider](../../providers/file.md)"
 
@@ -486,8 +486,8 @@ By default, `passHostHeader` is true.
     ```
 
 !!! info default serversTransport
-    If no serversTransport is specified, the `default@internal` will be used.
-    The `default@internal` serversTransport is created from the [static configuration](../overview.md#transport-configuration).
+If no serversTransport is specified, the `default@internal` will be used.
+The `default@internal` serversTransport is created from the [static configuration](../overview.md#transport-configuration).
 
 #### Response Forwarding
 
@@ -553,7 +553,7 @@ metadata:
   namespace: default
 
 spec:
-    serverName: "test"
+  serverName: "test"
 ```
 
 #### `Certificates`
@@ -588,7 +588,7 @@ metadata:
   namespace: default
 
 spec:
-    certificatesSecrets:
+  certificatesSecrets:
     - mycert
 
 ---
@@ -630,7 +630,7 @@ metadata:
   namespace: default
 
 spec:
-    insecureSkipVerify: true
+  insecureSkipVerify: true
 ```
 
 #### `rootCAs`
@@ -663,7 +663,7 @@ metadata:
   namespace: default
 
 spec:
-    rootCAsSecrets:
+  rootCAsSecrets:
     - myca
 ---
 apiVersion: v1
@@ -703,7 +703,7 @@ metadata:
   namespace: default
 
 spec:
-    maxIdleConnsPerHost: 7
+  maxIdleConnsPerHost: 7
 ```
 
 #### `disableHTTP2`
@@ -734,7 +734,7 @@ metadata:
   namespace: default
 
 spec:
-    disableHTTP2: true
+  disableHTTP2: true
 ```
 
 #### `peerCertURI`
@@ -765,7 +765,7 @@ metadata:
   namespace: default
 
 spec:
-    peerCertURI: foobar
+  peerCertURI: foobar
 ```
 
 #### `forwardingTimeouts`
@@ -802,8 +802,8 @@ metadata:
   namespace: default
 
 spec:
-    forwardingTimeouts:
-      dialTimeout: "1s"
+  forwardingTimeouts:
+    dialTimeout: "1s"
 ```
 
 ##### `forwardingTimeouts.responseHeaderTimeout`
@@ -838,8 +838,8 @@ metadata:
   namespace: default
 
 spec:
-    forwardingTimeouts:
-      responseHeaderTimeout: "1s"
+  forwardingTimeouts:
+    responseHeaderTimeout: "1s"
 ```
 
 ##### `forwardingTimeouts.idleConnTimeout`
@@ -872,8 +872,8 @@ metadata:
   namespace: default
 
 spec:
-    forwardingTimeouts:
-      idleConnTimeout: "1s"
+  forwardingTimeouts:
+    idleConnTimeout: "1s"
 ```
 
 ##### `forwardingTimeouts.readIdleTimeout`
@@ -910,8 +910,8 @@ metadata:
   namespace: default
 
 spec:
-    forwardingTimeouts:
-      readIdleTimeout: "1s"
+  forwardingTimeouts:
+    readIdleTimeout: "1s"
 ```
 
 ##### `forwardingTimeouts.pingTimeout`
@@ -944,8 +944,8 @@ metadata:
   namespace: default
 
 spec:
-    forwardingTimeouts:
-      pingTimeout: "1s"
+  forwardingTimeouts:
+    pingTimeout: "1s"
 ```
 
 ### Weighted Round Robin (service)
@@ -965,20 +965,20 @@ http:
     app:
       weighted:
         services:
-        - name: appv1
-          weight: 3
-        - name: appv2
-          weight: 1
+          - name: appv1
+            weight: 3
+          - name: appv2
+            weight: 1
 
     appv1:
       loadBalancer:
         servers:
-        - url: "http://private-ip-server-1/"
+          - url: "http://private-ip-server-1/"
 
     appv2:
       loadBalancer:
         servers:
-        - url: "http://private-ip-server-2/"
+          - url: "http://private-ip-server-2/"
 ```
 
 ```toml tab="TOML"
@@ -1026,10 +1026,10 @@ http:
       weighted:
         healthCheck: {}
         services:
-        - name: appv1
-          weight: 3
-        - name: appv2
-          weight: 1
+          - name: appv1
+            weight: 3
+          - name: appv2
+            weight: 1
 
     appv1:
       loadBalancer:
@@ -1038,7 +1038,7 @@ http:
           interval: 10s
           timeout: 3s
         servers:
-        - url: "http://private-ip-server-1/"
+          - url: "http://private-ip-server-1/"
 
     appv2:
       loadBalancer:
@@ -1047,7 +1047,7 @@ http:
           interval: 10s
           timeout: 3s
         servers:
-        - url: "http://private-ip-server-2/"
+          - url: "http://private-ip-server-2/"
 ```
 
 ```toml tab="TOML"
@@ -1103,18 +1103,18 @@ http:
         # Default value is -1, which means unlimited size.
         maxBodySize: 1024
         mirrors:
-        - name: appv2
-          percent: 10
+          - name: appv2
+            percent: 10
 
     appv1:
       loadBalancer:
         servers:
-        - url: "http://private-ip-server-1/"
+          - url: "http://private-ip-server-1/"
 
     appv2:
       loadBalancer:
         servers:
-        - url: "http://private-ip-server-2/"
+          - url: "http://private-ip-server-2/"
 ```
 
 ```toml tab="TOML"
@@ -1164,8 +1164,8 @@ http:
         healthCheck: {}
         service: appv1
         mirrors:
-        - name: appv2
-          percent: 10
+          - name: appv2
+            percent: 10
 
     appv1:
       loadBalancer:
@@ -1174,12 +1174,12 @@ http:
           interval: 10s
           timeout: 3s
         servers:
-        - url: "http://private-ip-server-1/"
+          - url: "http://private-ip-server-1/"
 
     appv2:
       loadBalancer:
         servers:
-        - url: "http://private-ip-server-2/"
+          - url: "http://private-ip-server-2/"
 ```
 
 ```toml tab="TOML"
@@ -1356,20 +1356,20 @@ tcp:
     app:
       weighted:
         services:
-        - name: appv1
-          weight: 3
-        - name: appv2
-          weight: 1
+          - name: appv1
+            weight: 3
+          - name: appv2
+            weight: 1
 
     appv1:
       loadBalancer:
         servers:
-        - address: "xxx.xxx.xxx.xxx:8080"
+          - address: "xxx.xxx.xxx.xxx:8080"
 
     appv2:
       loadBalancer:
         servers:
-        - address: "xxx.xxx.xxx.xxx:8080"
+          - address: "xxx.xxx.xxx.xxx:8080"
 ```
 
 ```toml tab="TOML"
@@ -1470,20 +1470,20 @@ udp:
     app:
       weighted:
         services:
-        - name: appv1
-          weight: 3
-        - name: appv2
-          weight: 1
+          - name: appv1
+            weight: 3
+          - name: appv2
+            weight: 1
 
     appv1:
       loadBalancer:
         servers:
-        - address: "xxx.xxx.xxx.xxx:8080"
+          - address: "xxx.xxx.xxx.xxx:8080"
 
     appv2:
       loadBalancer:
         servers:
-        - address: "xxx.xxx.xxx.xxx:8080"
+          - address: "xxx.xxx.xxx.xxx:8080"
 ```
 
 ```toml tab="TOML"

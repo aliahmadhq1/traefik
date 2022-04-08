@@ -1,18 +1,18 @@
 # Docker-compose with let's encrypt: DNS Challenge
 
 This guide aim to demonstrate how to create a certificate with the let's encrypt DNS challenge to use https on a simple service exposed with Traefik.  
-Please also read the [basic example](../basic-example) for details on how to expose such a service.  
+Please also read the [basic example](../basic-example) for details on how to expose such a service.
 
 ## Prerequisite
 
 For the DNS challenge, you'll need:
 
-- A working [provider](../../../https/acme.md#providers) along with the credentials allowing to create and remove DNS records.  
+- A working [provider](../../../https/acme.md#providers) along with the credentials allowing to create and remove DNS records.
 
 !!! info "Variables may vary depending on the Provider."
-	 Please note this guide may vary depending on the provider you use.
-	 The only things changing are the names of the variables you will need to define in order to configure your provider so it can create DNS records.  
-	 Please refer the [list of providers](../../../https/acme.md#providers) given right above and replace all the environment variables with the ones described in this documentation.
+Please note this guide may vary depending on the provider you use.
+The only things changing are the names of the variables you will need to define in order to configure your provider so it can create DNS records.  
+ Please refer the [list of providers](../../../https/acme.md#providers) given right above and replace all the environment variables with the ones described in this documentation.
 
 ## Setup
 
@@ -23,23 +23,23 @@ For the DNS challenge, you'll need:
 ```
 
 - Replace the environment variables by your own:
-    
-    ```yaml
-    environment:
-      - "OVH_ENDPOINT=[YOUR_OWN_VALUE]"
-      - "OVH_APPLICATION_KEY=[YOUR_OWN_VALUE]"
-      - "OVH_APPLICATION_SECRET=[YOUR_OWN_VALUE]"
-      - "OVH_CONSUMER_KEY=[YOUR_OWN_VALUE]"
-    ```
+
+  ```yaml
+  environment:
+    - "OVH_ENDPOINT=[YOUR_OWN_VALUE]"
+    - "OVH_APPLICATION_KEY=[YOUR_OWN_VALUE]"
+    - "OVH_APPLICATION_SECRET=[YOUR_OWN_VALUE]"
+    - "OVH_CONSUMER_KEY=[YOUR_OWN_VALUE]"
+  ```
 
 - Replace `postmaster@example.com` by your **own email** within the `certificatesresolvers.myresolver.acme.email` command line argument of the `traefik` service.
 - Replace `whoami.example.com` by your **own domain** within the `traefik.http.routers.whoami.rule` label of the `whoami` service.
-- Optionally uncomment the following lines if you want to test/debug: 
+- Optionally uncomment the following lines if you want to test/debug:
 
-	```yaml
-	#- "--log.level=DEBUG"
-	#- "--certificatesresolvers.myresolver.acme.caserver=https://acme-staging-v02.api.letsencrypt.org/directory"
-	```
+  ```yaml
+  #- "--log.level=DEBUG"
+  #- "--certificatesresolvers.myresolver.acme.caserver=https://acme-staging-v02.api.letsencrypt.org/directory"
+  ```
 
 - Run `docker-compose up -d` within the folder where you created the previous file.
 - Wait a bit and visit `https://your_own_domain` to confirm everything went fine.
@@ -76,7 +76,7 @@ command:
   - "--certificatesresolvers.myresolver.acme.email=postmaster@example.com"
 ```
 
-- We provide the required configuration to our provider via environment variables: 
+- We provide the required configuration to our provider via environment variables:
 
 ```yaml
 environment:
@@ -118,7 +118,7 @@ you could use docker secrets.
 The point is to manage those secret files by another mean, and read them from the `docker-compose.yml` file making the docker-compose file itself less sensitive.
 
 - Create a directory named `secrets`, and create a file for each parameters required to configure you provider containing the value of the parameter:  
-	for example, the `ovh_endpoint.secret` file contain `ovh-eu`
+  for example, the `ovh_endpoint.secret` file contain `ovh-eu`
 
 ```text
 ./secrets
@@ -151,7 +151,7 @@ Let's explain a bit what we just did:
 secrets:
   # secret name also used to name the file exposed within the container
   ovh_endpoint:
-     # path on the host
+    # path on the host
     file: "./secrets/ovh_endpoint.secret"
   ovh_application_key:
     file: "./secrets/ovh_application_key.secret"
@@ -171,7 +171,7 @@ services:
 ```
 
 - The environment variable within our `whoami` service are suffixed by `_FILE` which allow us to point to files containing the value, instead of exposing the value itself.  
-	The acme client will read the content of those file to get the required configuration values.
+  The acme client will read the content of those file to get the required configuration values.
 
 ```yaml
 environment:

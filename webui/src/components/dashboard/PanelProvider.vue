@@ -11,7 +11,7 @@
     </q-card-section>
     <q-card-section>
       <div class="text-h6 text-center text-weight-bold">
-        {{getName}}
+        {{ getName }}
       </div>
     </q-card-section>
   </q-card>
@@ -19,34 +19,34 @@
 
 <script>
 export default {
-  name: 'PanelProvider',
-  props: ['name'],
+  name: "PanelProvider",
+  props: ["name"],
   computed: {
-    getName () {
-      return this.name
+    getName() {
+      return this.name;
     },
-    getLogoPath () {
-      const name = this.getName.toLowerCase()
+    getLogoPath() {
+      const name = this.getName.toLowerCase();
 
-      if (name.includes('plugin-')) {
-        return 'statics/providers/plugin.svg'
+      if (name.includes("plugin-")) {
+        return "statics/providers/plugin.svg";
       }
 
-      return `statics/providers/${name}.svg`
-    }
-  }
-}
+      return `statics/providers/${name}.svg`;
+    },
+  },
+};
 </script>
 
 <style scoped lang="scss">
-  @import "../../css/sass/variables";
+@import "../../css/sass/variables";
 
-  .provider-logo {
-    width: 52px;
-    height: 52px;
-    img {
-      width: 100%;
-      height: 100%;
-    }
+.provider-logo {
+  width: 52px;
+  height: 52px;
+  img {
+    width: 100%;
+    height: 100%;
   }
+}
 </style>

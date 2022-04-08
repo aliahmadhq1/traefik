@@ -66,7 +66,7 @@ http:
 The following request properties are provided to the forward-auth target endpoint as `X-Forwarded-` headers.
 
 | Property          | Forward-Request Header |
-|-------------------|------------------------|
+| ----------------- | ---------------------- |
 | HTTP Method       | X-Forwarded-Method     |
 | Protocol          | X-Forwarded-Proto      |
 | Host              | X-Forwarded-Host       |
@@ -384,7 +384,7 @@ metadata:
   namespace: default
 
 data:
-  # Must contain a certificate under either a `tls.ca` or a `ca.crt` key. 
+  # Must contain a certificate under either a `tls.ca` or a `ca.crt` key.
   tls.ca: LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCi0tLS0tRU5EIENFUlRJRklDQVRFLS0tLS0=
 ```
 

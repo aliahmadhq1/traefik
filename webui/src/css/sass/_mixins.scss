@@ -1,19 +1,19 @@
 @import "./variables";
 
 $breakpoints: (
-  'xs': 0,
-  'sm': $screen-xs-min,
-  'md': $screen-sm-min,
-  'lg': $screen-md-min,
-  'xl': $screen-lg-min
+  "xs": 0,
+  "sm": $screen-xs-min,
+  "md": $screen-sm-min,
+  "lg": $screen-md-min,
+  "xl": $screen-lg-min,
 );
 
-@mixin respond-to($breakpoint, $type:'min') {
+@mixin respond-to($breakpoint, $type: "min") {
   // Retrieves the value from the key
   $value: map-get($breakpoints, $breakpoint);
 
-  @if $type == 'max' {
-    $value: $value - 1
+  @if $type == "max" {
+    $value: $value - 1;
   }
 
   // If the key exists in the map

@@ -6,7 +6,7 @@ Automatic HTTPS
 You can configure Traefik to use an ACME provider (like Let's Encrypt) for automatic certificate generation.
 
 !!! warning "Let's Encrypt and Rate Limiting"
-    Note that Let's Encrypt API has [rate limiting](https://letsencrypt.org/docs/rate-limits).
+Note that Let's Encrypt API has [rate limiting](https://letsencrypt.org/docs/rate-limits).
 
     Use Let's Encrypt staging server with the [`caServer`](#caserver) configuration option
     when experimenting to avoid hitting this limit too fast.
@@ -149,14 +149,14 @@ When using a certificates resolver that issues certificates with custom duration
 one can configure the certificates' duration with the [`certificatesDuration`](#certificatesduration) option.
 
 !!! info ""
-    Certificates that are no longer used may still be renewed, as Traefik does not currently check if the certificate is being used before renewing.
+Certificates that are no longer used may still be renewed, as Traefik does not currently check if the certificate is being used before renewing.
 
 ## Using LetsEncrypt with Kubernetes
 
 When using LetsEncrypt with kubernetes, there are some known caveats with both the [ingress](../providers/kubernetes-ingress.md) and [crd](../providers/kubernetes-crd.md) providers.
 
 !!! info ""
-    If you intend to run multiple instances of Traefik with LetsEncrypt, please ensure you read the sections on those provider pages.
+If you intend to run multiple instances of Traefik with LetsEncrypt, please ensure you read the sections on those provider pages.
 
 ## The Different ACME Challenges
 
@@ -239,7 +239,7 @@ when using the `HTTP-01` challenge, `certificatesresolvers.myresolver.acme.httpc
     ```
 
 !!! info ""
-    Redirection is fully compatible with the `HTTP-01` challenge.
+Redirection is fully compatible with the `HTTP-01` challenge.
 
 ### `dnsChallenge`
 
@@ -289,7 +289,7 @@ For example, `CF_API_EMAIL_FILE=/run/secrets/traefik_cf-api-email` could be used
 For complete details, refer to your provider's _Additional configuration_ link.
 
 | Provider Name                                               | Provider Code  | Environment Variables                                                                                                                       |                                                                             |
-|-------------------------------------------------------------|----------------|---------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------|
+| ----------------------------------------------------------- | -------------- | ------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------- |
 | [ACME DNS](https://github.com/joohoi/acme-dns)              | `acme-dns`     | `ACME_DNS_API_BASE`, `ACME_DNS_STORAGE_PATH`                                                                                                | [Additional configuration](https://go-acme.github.io/lego/dns/acme-dns)     |
 | [Alibaba Cloud](https://www.alibabacloud.com)               | `alidns`       | `ALICLOUD_ACCESS_KEY`, `ALICLOUD_SECRET_KEY`, `ALICLOUD_REGION_ID`                                                                          | [Additional configuration](https://go-acme.github.io/lego/dns/alidns)       |
 | [all-inkl](https://all-inkl.com)                            | `allinkl`      | `ALL_INKL_LOGIN`, `ALL_INKL_PASSWORD`                                                                                                       | [Additional configuration](https://go-acme.github.io/lego/dns/allinkl)      |
@@ -318,10 +318,10 @@ For complete details, refer to your provider's _Additional configuration_ link.
 | [Dyn](https://dyn.com)                                      | `dyn`          | `DYN_CUSTOMER_NAME`, `DYN_USER_NAME`, `DYN_PASSWORD`                                                                                        | [Additional configuration](https://go-acme.github.io/lego/dns/dyn)          |
 | [Dynu](https://www.dynu.com)                                | `dynu`         | `DYNU_API_KEY`                                                                                                                              | [Additional configuration](https://go-acme.github.io/lego/dns/dynu)         |
 | [EasyDNS](https://easydns.com/)                             | `easydns`      | `EASYDNS_TOKEN`, `EASYDNS_KEY`                                                                                                              | [Additional configuration](https://go-acme.github.io/lego/dns/easydns)      |
-| [EdgeDNS](https://www.akamai.com/)                          | `edgedns`      | `AKAMAI_CLIENT_TOKEN`,  `AKAMAI_CLIENT_SECRET`,  `AKAMAI_ACCESS_TOKEN`                                                                      | [Additional configuration](https://go-acme.github.io/lego/dns/edgedns)      |
+| [EdgeDNS](https://www.akamai.com/)                          | `edgedns`      | `AKAMAI_CLIENT_TOKEN`, `AKAMAI_CLIENT_SECRET`, `AKAMAI_ACCESS_TOKEN`                                                                        | [Additional configuration](https://go-acme.github.io/lego/dns/edgedns)      |
 | [Epik](https://www.epik.com)                                | `epik`         | `EPIK_SIGNATURE`                                                                                                                            | [Additional configuration](https://go-acme.github.io/lego/dns/epik)         |
 | [Exoscale](https://www.exoscale.com)                        | `exoscale`     | `EXOSCALE_API_KEY`, `EXOSCALE_API_SECRET`, `EXOSCALE_ENDPOINT`                                                                              | [Additional configuration](https://go-acme.github.io/lego/dns/exoscale)     |
-| [Fast DNS](https://www.akamai.com/)                         | `fastdns`      | `AKAMAI_CLIENT_TOKEN`,  `AKAMAI_CLIENT_SECRET`,  `AKAMAI_ACCESS_TOKEN`                                                                      | [Additional configuration](https://go-acme.github.io/lego/dns/edgedns)      |
+| [Fast DNS](https://www.akamai.com/)                         | `fastdns`      | `AKAMAI_CLIENT_TOKEN`, `AKAMAI_CLIENT_SECRET`, `AKAMAI_ACCESS_TOKEN`                                                                        | [Additional configuration](https://go-acme.github.io/lego/dns/edgedns)      |
 | [Freemyip.com](https://freemyip.com)                        | `freemyip`     | `FREEMYIP_TOKEN`                                                                                                                            | [Additional configuration](https://go-acme.github.io/lego/dns/freemyip)     |
 | [G-Core Lab](https://gcorelabs.com/dns/)                    | `gcore`        | `GCORE_PERMANENT_API_TOKEN`                                                                                                                 | [Additional configuration](https://go-acme.github.io/lego/dns/gcore)        |
 | [Gandi v5](https://doc.livedns.gandi.net)                   | `gandiv5`      | `GANDIV5_API_KEY`                                                                                                                           | [Additional configuration](https://go-acme.github.io/lego/dns/gandiv5)      |
@@ -400,9 +400,9 @@ For complete details, refer to your provider's _Additional configuration_ link.
 [^6]: As explained in the [LEGO hurricane configuration](https://go-acme.github.io/lego/dns/hurricane/#credentials), each domain or wildcard (record name) needs a token. So each update of record name must be followed by an update of the `HURRICANE_TOKENS` variable, and a restart of Traefik.
 
 !!! info "`delayBeforeCheck`"
-    By default, the `provider` verifies the TXT record _before_ letting ACME verify.
-    You can delay this operation by specifying a delay (in seconds) with `delayBeforeCheck` (value must be greater than zero).
-    This option is useful when internal networks block external DNS queries.
+By default, the `provider` verifies the TXT record _before_ letting ACME verify.
+You can delay this operation by specifying a delay (in seconds) with `delayBeforeCheck` (value must be greater than zero).
+This option is useful when internal networks block external DNS queries.
 
 #### `resolvers`
 
@@ -543,7 +543,7 @@ docker run -v "/my/host/acme:/etc/traefik/acme" traefik
 ```
 
 !!! warning
-    For concurrency reasons, this file cannot be shared across multiple instances of Traefik.
+For concurrency reasons, this file cannot be shared across multiple instances of Traefik.
 
 ### `certificatesDuration`
 
@@ -581,13 +581,13 @@ certificatesResolvers:
 - `Renew Period`: the period before the end of the certificate duration, during which the certificate should be renewed.
 - `Renew Interval`: the interval between renew attempts.
 
-| Certificate Duration | Renew Period      | Renew Interval          |
-|----------------------|-------------------|-------------------------|
-| >= 1 year            | 4 months          | 1 week                  |
-| >= 90 days           | 30 days           | 1 day                   |
-| >= 7 days            | 1 day             | 1 hour                  |
-| >= 24 hours          | 6 hours           | 10 min                  |
-| < 24 hours           | 20 min            | 1 min                   |
+| Certificate Duration | Renew Period | Renew Interval |
+| -------------------- | ------------ | -------------- |
+| >= 1 year            | 4 months     | 1 week         |
+| >= 90 days           | 30 days      | 1 day          |
+| >= 7 days            | 1 day        | 1 hour         |
+| >= 24 hours          | 6 hours      | 10 min         |
+| < 24 hours           | 20 min       | 1 min          |
 
 ### `preferredChain`
 
@@ -603,7 +603,7 @@ certificatesResolvers:
   myresolver:
     acme:
       # ...
-      preferredChain: 'ISRG Root X1'
+      preferredChain: "ISRG Root X1"
       # ...
 ```
 
@@ -631,7 +631,7 @@ certificatesResolvers:
   myresolver:
     acme:
       # ...
-      keyType: 'RSA4096'
+      keyType: "RSA4096"
       # ...
 ```
 
@@ -652,9 +652,9 @@ certificatesResolvers:
 
 If Let's Encrypt is not reachable, the following certificates will apply:
 
-  1. Previously generated ACME certificates (before downtime)
-  1. Expired ACME certificates
-  1. Provided certificates
+1. Previously generated ACME certificates (before downtime)
+1. Expired ACME certificates
+1. Provided certificates
 
 !!! important
-    For new (sub)domains which need Let's Encrypt authentication, the default Traefik certificate will be used until Traefik is restarted.
+For new (sub)domains which need Let's Encrypt authentication, the default Traefik certificate will be used until Traefik is restarted.

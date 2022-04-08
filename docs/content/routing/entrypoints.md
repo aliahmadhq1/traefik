@@ -238,9 +238,9 @@ In most scenarios, this entryPoint is the same as the one used for TLS traffic.
 
 !!! warning "Enabling Experimental HTTP/3"
 
-    As the HTTP/3 spec is still in draft, HTTP/3 support in Traefik is an experimental feature and needs to be activated 
+    As the HTTP/3 spec is still in draft, HTTP/3 support in Traefik is an experimental feature and needs to be activated
     in the experimental section of the static configuration.
-    
+
     ```yaml tab="File (YAML)"
     experimental:
       http3: true
@@ -253,10 +253,10 @@ In most scenarios, this entryPoint is the same as the one used for TLS traffic.
     ```toml tab="File (TOML)"
     [experimental]
       http3 = true
-    
+
     [entryPoints.name.http3]
     ```
-    
+
     ```bash tab="CLI"
     --experimental.http3=true --entrypoints.name.http3
     ```
@@ -282,11 +282,11 @@ It can be used to override the authority in the `alt-svc` header, for example if
     ```toml tab="File (TOML)"
     [experimental]
       http3 = true
-    
+
     [entryPoints.name.http3]
       advertisedPort = 443
     ```
-    
+
     ```bash tab="CLI"
     --experimental.http3=true --entrypoints.name.http3.advertisedport=443
     ```
@@ -368,7 +368,7 @@ Setting them has no effect for UDP entryPoints.
 
     `readTimeout` is the maximum duration for reading the entire request, including the body.
 
-    If zero, no timeout exists.  
+    If zero, no timeout exists.
     Can be provided in a format supported by [time.ParseDuration](https://golang.org/pkg/time/#ParseDuration) or as raw values (digits).
     If no units are provided, the value is parsed assuming seconds.
 
@@ -405,7 +405,7 @@ Setting them has no effect for UDP entryPoints.
     `writeTimeout` is the maximum duration before timing out writes of the response.
 
     It covers the time from the end of the request header read to the end of the response write.
-    If zero, no timeout exists.  
+    If zero, no timeout exists.
     Can be provided in a format supported by [time.ParseDuration](https://golang.org/pkg/time/#ParseDuration) or as raw values (digits).
     If no units are provided, the value is parsed assuming seconds.
 
@@ -441,7 +441,7 @@ Setting them has no effect for UDP entryPoints.
 
     `idleTimeout` is the maximum duration an idle (keep-alive) connection will remain idle before closing itself.
 
-    If zero, no timeout exists.  
+    If zero, no timeout exists.
     Can be provided in a format supported by [time.ParseDuration](https://golang.org/pkg/time/#ParseDuration) or as raw values (digits).
     If no units are provided, the value is parsed assuming seconds.
 
@@ -802,7 +802,7 @@ The list of middlewares that are prepended by default to the list of middlewares
 ```yaml tab="File (YAML)"
 entryPoints:
   websecure:
-    address: ':443'
+    address: ":443"
     http:
       middlewares:
         - auth@file
@@ -833,7 +833,7 @@ The TLS section is the same as the [TLS section on HTTP routers](./routers/index
 ```yaml tab="File (YAML)"
 entryPoints:
   websecure:
-    address: ':443'
+    address: ":443"
     http:
       tls:
         options: foobar
@@ -912,7 +912,7 @@ The Timeout value must be greater than zero.
 ```yaml tab="File (YAML)"
 entryPoints:
   foo:
-    address: ':8000/udp'
+    address: ":8000/udp"
     udp:
       timeout: 10s
 ```

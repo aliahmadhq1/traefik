@@ -13,7 +13,7 @@ The Kubernetes Gateway API, The Experimental Way. {: .subtitle }
     ```yaml tab="Whoami Service"
     --8<-- "content/reference/dynamic-configuration/kubernetes-whoami-svc.yml"
     ```
-    
+
     ```yaml tab="Traefik Service"
     --8<-- "content/reference/dynamic-configuration/kubernetes-gateway-traefik-lb-svc.yml"
     ```
@@ -26,21 +26,21 @@ The Kubernetes Gateway API, The Experimental Way. {: .subtitle }
 
 ### Custom Resource Definition (CRD)
 
-* You can find an exhaustive list, of the custom resources and their attributes in
+- You can find an exhaustive list, of the custom resources and their attributes in
   [the reference page](../../reference/dynamic-configuration/kubernetes-gateway.md) or in the Kubernetes
   Sigs `Gateway API` [repository](https://github.com/kubernetes-sigs/gateway-api).
-* Validate that [the prerequisites](../../providers/kubernetes-gateway.md#configuration-requirements) are fulfilled
+- Validate that [the prerequisites](../../providers/kubernetes-gateway.md#configuration-requirements) are fulfilled
   before using the Traefik Kubernetes Gateway Provider.
 
 You can find an excerpt of the supported Kubernetes Gateway API resources in the table below:
 
-| Kind                               | Purpose                                                                   | Concept Behind                                                                       |
-|------------------------------------|---------------------------------------------------------------------------|--------------------------------------------------------------------------------------|
-| [GatewayClass](#kind-gatewayclass) | Defines a set of Gateways that share a common configuration and behaviour | [GatewayClass](https://gateway-api.sigs.k8s.io/v1alpha2/api-types/gatewayclass)      |
-| [Gateway](#kind-gateway)           | Describes how traffic can be translated to Services within the cluster    | [Gateway](https://gateway-api.sigs.k8s.io/v1alpha2/api-types/gateway)                |
-| [HTTPRoute](#kind-httproute)       | HTTP rules for mapping requests from a Gateway to Kubernetes Services     | [Route](https://gateway-api.sigs.k8s.io/v1alpha2/api-types/httproute)                |
-| [TCPRoute](#kind-tcproute)         | Allows mapping TCP requests from a Gateway to Kubernetes Services         | [Route](https://gateway-api.sigs.k8s.io/concepts/api-overview/#tcproute-and-udproute)|
-| [TLSRoute](#kind-tlsroute)         | Allows mapping TLS requests from a Gateway to Kubernetes Services         | [Route](https://gateway-api.sigs.k8s.io/concepts/api-overview/#tcproute-and-udproute)|
+| Kind                               | Purpose                                                                   | Concept Behind                                                                        |
+| ---------------------------------- | ------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- |
+| [GatewayClass](#kind-gatewayclass) | Defines a set of Gateways that share a common configuration and behaviour | [GatewayClass](https://gateway-api.sigs.k8s.io/v1alpha2/api-types/gatewayclass)       |
+| [Gateway](#kind-gateway)           | Describes how traffic can be translated to Services within the cluster    | [Gateway](https://gateway-api.sigs.k8s.io/v1alpha2/api-types/gateway)                 |
+| [HTTPRoute](#kind-httproute)       | HTTP rules for mapping requests from a Gateway to Kubernetes Services     | [Route](https://gateway-api.sigs.k8s.io/v1alpha2/api-types/httproute)                 |
+| [TCPRoute](#kind-tcproute)         | Allows mapping TCP requests from a Gateway to Kubernetes Services         | [Route](https://gateway-api.sigs.k8s.io/concepts/api-overview/#tcproute-and-udproute) |
+| [TLSRoute](#kind-tlsroute)         | Allows mapping TLS requests from a Gateway to Kubernetes Services         | [Route](https://gateway-api.sigs.k8s.io/concepts/api-overview/#tcproute-and-udproute) |
 
 ### Kind: `GatewayClass`
 
@@ -77,7 +77,7 @@ Kubernetes cluster before creating `Gateway` objects.
 Depending on the Listener Protocol, different modes and Route types are supported.
 
 | Listener Protocol | TLS Mode       | Route Type Supported                                   |
-|-------------------|----------------|--------------------------------------------------------|
+| ----------------- | -------------- | ------------------------------------------------------ |
 | TCP               | Not applicable | [TCPRoute](#kind-tcproute)                             |
 | TLS               | Passthrough    | [TLSRoute](#kind-tlsroute), [TCPRoute](#kind-tcproute) |
 | TLS               | Terminate      | [TLSRoute](#kind-tlsroute), [TCPRoute](#kind-tcproute) |
@@ -96,7 +96,7 @@ Depending on the Listener Protocol, different modes and Route types are supporte
       gatewayClassName: my-gateway-class        # [1]
       listeners:                                # [2]
         - name: http                            # [3]
-          protocol: HTTP                        # [4] 
+          protocol: HTTP                        # [4]
           port: 80                              # [5]
           allowedRoutes:                        # [9]
             kinds:
@@ -104,7 +104,7 @@ Depending on the Listener Protocol, different modes and Route types are supporte
             namespaces:
               from: Selector                    # [11]
               selector:                         # [12]
-                matchLabels:                    
+                matchLabels:
                   app: foo
     ```
 
@@ -118,7 +118,7 @@ Depending on the Listener Protocol, different modes and Route types are supporte
       gatewayClassName: my-gateway-class        # [1]
       listeners:                                # [2]
         - name: https                           # [3]
-          protocol: HTTPS                       # [4] 
+          protocol: HTTPS                       # [4]
           port: 443                             # [5]
           tls:                                  # [7]
             certificateRefs:                    # [8]
@@ -130,7 +130,7 @@ Depending on the Listener Protocol, different modes and Route types are supporte
             namespaces:
               from: Selector                    # [11]
               selector:                         # [12]
-                matchLabels:                    
+                matchLabels:
                   app: foo
     ```
 
@@ -144,15 +144,15 @@ Depending on the Listener Protocol, different modes and Route types are supporte
       gatewayClassName: my-gateway-class        # [1]
       listeners:                                # [2]
         - name: tcp                             # [3]
-          protocol: TCP                         # [4] 
+          protocol: TCP                         # [4]
           port: 8000                            # [5]
           allowedRoutes:                        # [9]
             kinds:
-              - kind: TCPRoute                  # [10]  
+              - kind: TCPRoute                  # [10]
             namespaces:
               from: Selector                    # [11]
               selector:                         # [12]
-                matchLabels:                    
+                matchLabels:
                   app: footcp
     ```
 
@@ -166,7 +166,7 @@ Depending on the Listener Protocol, different modes and Route types are supporte
       gatewayClassName: my-gateway-class        # [1]
       listeners:                                # [2]
         - name: tls                             # [3]
-          protocol: TLS                         # [4] 
+          protocol: TLS                         # [4]
           port: 443                             # [5]
           hostname: foo.com                     # [6]
           tls:                                  # [7]
@@ -179,18 +179,18 @@ Depending on the Listener Protocol, different modes and Route types are supporte
             namespaces:
               from: Selector                    # [11]
               selector:                         # [12]
-                matchLabels:                    
+                matchLabels:
                   app: footcp
     ```
 
 | Ref  | Attribute          | Description                                                                                                                                                 |
-|------|--------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| ---- | ------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | [1]  | `gatewayClassName` | GatewayClassName used for this Gateway. This is the name of a GatewayClass resource.                                                                        |
 | [2]  | `listeners`        | Logical endpoints that are bound on this Gateway's addresses. At least one Listener MUST be specified.                                                      |
 | [3]  | `name`             | Name of the Listener.                                                                                                                                       |
 | [4]  | `protocol`         | The network protocol this listener expects to receive (only HTTP and HTTPS are implemented).                                                                |
 | [5]  | `port`             | The network port.                                                                                                                                           |
-| [6]  | `hostname`         | Hostname specifies the virtual hostname to match for protocol types that define this concept. When unspecified, “”, or *, all hostnames are matched.        |
+| [6]  | `hostname`         | Hostname specifies the virtual hostname to match for protocol types that define this concept. When unspecified, “”, or \*, all hostnames are matched.       |
 | [7]  | `tls`              | TLS configuration for the Listener. This field is required if the Protocol field is "HTTPS" or "TLS" and ignored otherwise.                                 |
 | [8]  | `certificateRefs`  | The references to Kubernetes objects that contains TLS certificates and private keys (only one reference to a Kubernetes Secret is supported).              |
 | [9]  | `allowedRoutes`    | Defines the types of routes that MAY be attached to a Listener and the trusted namespaces where those Route resources MAY be present.                       |
@@ -217,7 +217,7 @@ Kubernetes cluster before creating `HTTPRoute` objects.
       parentRefs:                               # [1]
         - name: my-tcp-gateway                  # [2]
           namespace: default                    # [3]
-          sectionName: tcp                      # [4] 
+          sectionName: tcp                      # [4]
       hostnames:                                # [5]
         - whoami
       rules:                                    # [6]
@@ -238,7 +238,7 @@ Kubernetes cluster before creating `HTTPRoute` objects.
     ```
 
 | Ref  | Attribute     | Description                                                                                                                                                                 |
-|------|---------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| ---- | ------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | [1]  | `parentRefs`  | References the resources (usually Gateways) that a Route wants to be attached to.                                                                                           |
 | [2]  | `name`        | Name of the referent.                                                                                                                                                       |
 | [3]  | `namespace`   | Namespace of the referent. When unspecified (or empty string), this refers to the local namespace of the Route.                                                             |
@@ -290,7 +290,7 @@ Kubernetes cluster before creating `TCPRoute` objects.
     ```
 
 | Ref  | Attribute     | Description                                                                                                          |
-|------|---------------|----------------------------------------------------------------------------------------------------------------------|
+| ---- | ------------- | -------------------------------------------------------------------------------------------------------------------- |
 | [1]  | `parentRefs`  | References the resources (usually Gateways) that a Route wants to be attached to.                                    |
 | [2]  | `name`        | Name of the referent.                                                                                                |
 | [3]  | `namespace`   | Namespace of the referent. When unspecified (or empty string), this refers to the local namespace of the Route.      |
@@ -324,7 +324,7 @@ Kubernetes cluster before creating `TLSRoute` objects.
           namespace: default                    # [3]
           sectionName: tcp                      # [4]
       hostnames:                                # [5]
-        - whoami                                
+        - whoami
       rules:                                    # [6]
         - backendRefs:                          # [7]
             - name: whoamitcp                   # [8]
@@ -336,7 +336,7 @@ Kubernetes cluster before creating `TLSRoute` objects.
     ```
 
 | Ref  | Attribute     | Description                                                                                                          |
-|------|---------------|----------------------------------------------------------------------------------------------------------------------|
+| ---- | ------------- | -------------------------------------------------------------------------------------------------------------------- |
 | [1]  | `parentRefs`  | References the resources (usually Gateways) that a Route wants to be attached to.                                    |
 | [2]  | `name`        | Name of the referent.                                                                                                |
 | [3]  | `namespace`   | Namespace of the referent. When unspecified (or empty string), this refers to the local namespace of the Route.      |

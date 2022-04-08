@@ -2,17 +2,17 @@
 
 You can install Traefik with the following flavors:
 
-* [Use the official Docker image](./#use-the-official-docker-image)
-* [Use the Helm Chart](./#use-the-helm-chart)
-* [Use the binary distribution](./#use-the-binary-distribution)
-* [Compile your binary from the sources](./#compile-your-binary-from-the-sources)
+- [Use the official Docker image](./#use-the-official-docker-image)
+- [Use the Helm Chart](./#use-the-helm-chart)
+- [Use the binary distribution](./#use-the-binary-distribution)
+- [Compile your binary from the sources](./#compile-your-binary-from-the-sources)
 
 ## Use the Official Docker Image
 
 Choose one of the [official Docker images](https://hub.docker.com/_/traefik) and run it with one sample configuration file:
 
-* [YAML](https://raw.githubusercontent.com/traefik/traefik/v2.6/traefik.sample.yml)
-* [TOML](https://raw.githubusercontent.com/traefik/traefik/v2.6/traefik.sample.toml)
+- [YAML](https://raw.githubusercontent.com/traefik/traefik/v2.6/traefik.sample.yml)
+- [TOML](https://raw.githubusercontent.com/traefik/traefik/v2.6/traefik.sample.toml)
 
 ```bash
 docker run -d -p 8080:8080 -p 80:80 \
@@ -39,8 +39,8 @@ Traefik can be installed in Kubernetes using the Helm chart from <https://github
 
 Ensure that the following requirements are met:
 
-* Kubernetes 1.14+
-* Helm version 3.x is [installed](https://helm.sh/docs/intro/install/)
+- Kubernetes 1.14+
+- Helm version 3.x is [installed](https://helm.sh/docs/intro/install/)
 
 Add Traefik's chart repository to Helm:
 

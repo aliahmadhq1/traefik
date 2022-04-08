@@ -50,10 +50,7 @@
     "ACMELogging": false,
     "Options": null
   },
-  "DefaultEntryPoints": [
-    "https",
-    "http"
-  ],
+  "DefaultEntryPoints": ["https", "http"],
   "ProvidersThrottleDuration": 2000000000,
   "MaxIdleConnsPerHost": 200,
   "IdleTimeout": 180000000000,

@@ -11,7 +11,7 @@ Traefik supports 4 metrics backends:
 ## Global Metrics
 
 | Metric                                                                  | DataDog | InfluxDB / InfluxDB2 | Prometheus | StatsD |
-|-------------------------------------------------------------------------|---------|----------------------|------------|--------|
+| ----------------------------------------------------------------------- | ------- | -------------------- | ---------- | ------ |
 | [Configuration reloads](#configuration-reloads)                         | ✓       | ✓                    | ✓          | ✓      |
 | [Last Configuration Reload Success](#last-configuration-reload-success) | ✓       | ✓                    | ✓          | ✓      |
 | [TLS certificates expiration](#tls-certificates-expiration)             | ✓       | ✓                    | ✓          | ✓      |
@@ -84,7 +84,7 @@ traefik_tls_certs_not_after
 ## EntryPoint Metrics
 
 | Metric                                                    | DataDog | InfluxDB / InfluxDB2 | Prometheus | StatsD |
-|-----------------------------------------------------------|---------|----------------------|------------|--------|
+| --------------------------------------------------------- | ------- | -------------------- | ---------- | ------ |
 | [HTTP Requests Count](#http-requests-count)               | ✓       | ✓                    | ✓          | ✓      |
 | [HTTPS Requests Count](#https-requests-count)             | ✓       | ✓                    | ✓          | ✓      |
 | [Request Duration Histogram](#request-duration-histogram) | ✓       | ✓                    | ✓          | ✓      |
@@ -185,7 +185,7 @@ traefik_entrypoint_open_connections
 ## Router Metrics
 
 | Metric                                                      | DataDog | InfluxDB / InfluxDB2 | Prometheus | StatsD |
-|-------------------------------------------------------------|---------|----------------------|------------|--------|
+| ----------------------------------------------------------- | ------- | -------------------- | ---------- | ------ |
 | [HTTP Requests Count](#http-requests-count_1)               | ✓       | ✓                    | ✓          | ✓      |
 | [HTTPS Requests Count](#https-requests-count_1)             | ✓       | ✓                    | ✓          | ✓      |
 | [Request Duration Histogram](#request-duration-histogram_1) | ✓       | ✓                    | ✓          | ✓      |
@@ -286,7 +286,7 @@ traefik_router_open_connections
 ## Service Metrics
 
 | Metric                                                      | DataDog | InfluxDB / InfluxDB2 | Prometheus | StatsD |
-|-------------------------------------------------------------|---------|----------------------|------------|--------|
+| ----------------------------------------------------------- | ------- | -------------------- | ---------- | ------ |
 | [HTTP Requests Count](#http-requests-count_2)               | ✓       | ✓                    | ✓          | ✓      |
 | [HTTPS Requests Count](#https-requests-count_2)             | ✓       | ✓                    | ✓          | ✓      |
 | [Request Duration Histogram](#request-duration-histogram_2) | ✓       | ✓                    | ✓          | ✓      |
@@ -437,7 +437,7 @@ traefik_service_server_up
 Here is a comprehensive list of labels that are provided by the metrics:
 
 | Label         | Description                           | example                    |
-|---------------|---------------------------------------|----------------------------|
+| ------------- | ------------------------------------- | -------------------------- |
 | `cn`          | Certificate Common Name               | "example.com"              |
 | `code`        | Request code                          | "200"                      |
 | `entrypoint`  | Entrypoint that handled the request   | "example_entrypoint"       |

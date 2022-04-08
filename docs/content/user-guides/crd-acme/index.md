@@ -6,7 +6,7 @@ Traefik with an IngressRoute Custom Resource Definition for Kubernetes, and TLS 
 This document is intended to be a fully working example demonstrating how to set up Traefik in [Kubernetes](https://kubernetes.io),
 with the dynamic configuration coming from the [IngressRoute Custom Resource](../../providers/kubernetes-crd.md),
 and TLS setup with [Let's Encrypt](https://letsencrypt.org).
-However, for the sake of simplicity, we're using [k3s](https://github.com/rancher/k3s)  docker image for the Kubernetes cluster setup.
+However, for the sake of simplicity, we're using [k3s](https://github.com/rancher/k3s) docker image for the Kubernetes cluster setup.
 
 Please note that for this setup, given that we're going to use ACME's TLS-ALPN-01 challenge, the host you'll be running it on must be able to receive connections from the outside on port 443.
 And of course its internet facing IP address must match the domain name you intend to use.
@@ -44,7 +44,6 @@ Also note the RBAC authorization resources; they'll be referenced through the `s
 
 ```yaml
 --8<-- "content/reference/dynamic-configuration/kubernetes-crd-definition-v1.yml"
-
 ---
 --8<-- "content/reference/dynamic-configuration/kubernetes-crd-rbac.yml"
 ```

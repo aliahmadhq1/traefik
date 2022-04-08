@@ -1,13 +1,13 @@
 // ----------------------------
 // all Overview
 // ----------------------------
-export function allOverview (state) {
-  return state.allOverview
+export function allOverview(state) {
+  return state.allOverview;
 }
 
 // ----------------------------
 // Version
 // ----------------------------
-export function version (state) {
-  return state.version
+export function version(state) {
+  return state.version;
 }

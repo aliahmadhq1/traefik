@@ -51,7 +51,7 @@ kind: IngressRouteTCP
 metadata:
   name: ingressroute
 spec:
-# more fields...
+  # more fields...
   routes:
     # more fields...
     middlewares:
@@ -123,13 +123,13 @@ tcp:
     service1:
       loadBalancer:
         servers:
-        - address: "10.0.0.10:4000"
-        - address: "10.0.0.11:4000"
+          - address: "10.0.0.10:4000"
+          - address: "10.0.0.11:4000"
 ```
 
 ## Available TCP Middlewares
 
-| Middleware                                | Purpose                                           | Area                        |
-|-------------------------------------------|---------------------------------------------------|-----------------------------|
-| [InFlightConn](inflightconn.md)           | Limits the number of simultaneous connections.    | Security, Request lifecycle |
-| [IPWhiteList](ipwhitelist.md)             | Limit the allowed client IPs.                     | Security, Request lifecycle |
+| Middleware                      | Purpose                                        | Area                        |
+| ------------------------------- | ---------------------------------------------- | --------------------------- |
+| [InFlightConn](inflightconn.md) | Limits the number of simultaneous connections. | Security, Request lifecycle |
+| [IPWhiteList](ipwhitelist.md)   | Limit the allowed client IPs.                  | Security, Request lifecycle |

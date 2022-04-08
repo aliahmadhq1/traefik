@@ -52,7 +52,7 @@ http:
     srv-grpc:
       loadBalancer:
         servers:
-        - url: h2c://backend.local:8080
+          - url: h2c://backend.local:8080
 ```
 
 ```toml tab="TOML"
@@ -73,7 +73,7 @@ http:
 ```
 
 !!! warning
-    For providers with labels, you will have to specify the `traefik.http.services.<my-service-name>.loadbalancer.server.scheme=h2c`
+For providers with labels, you will have to specify the `traefik.http.services.<my-service-name>.loadbalancer.server.scheme=h2c`
 
 ### Conclusion
 
@@ -174,13 +174,13 @@ http:
     srv-grpc:
       loadBalancer:
         servers:
-        # Access on backend with HTTPS
-        - url: https://backend.local:8080
+          # Access on backend with HTTPS
+          - url: https://backend.local:8080
 tls:
   # For secure connection on frontend.local
   certificates:
-  - certfile: ./frontend.cert
-    keyfile: ./frontend.key
+    - certfile: ./frontend.cert
+      keyfile: ./frontend.key
 ```
 
 ```toml tab="TOML"
@@ -209,14 +209,14 @@ tls:
 ```
 
 !!! warning
-    With some services, the server URLs use the IP, so you may need to configure `insecureSkipVerify` instead of the `rootCAs` to activate HTTPS without hostname verification.
+With some services, the server URLs use the IP, so you may need to configure `insecureSkipVerify` instead of the `rootCAs` to activate HTTPS without hostname verification.
 
 ### A gRPC example in go (modify for https)
 
 We use the gRPC greeter example in [grpc-go](https://github.com/grpc/grpc-go/tree/master/examples/helloworld)
 
 !!! warning
-    In order to use this gRPC example, we need to modify it to use HTTPS
+In order to use this gRPC example, we need to modify it to use HTTPS
 
 So we modify the "gRPC server example" to use our own self-signed certificate:
 

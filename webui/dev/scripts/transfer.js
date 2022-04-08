@@ -1,17 +1,20 @@
-const fs = require('fs-extra')
+const fs = require("fs-extra");
 
-const folder = process.argv[2]
+const folder = process.argv[2];
 
-async function execute () {
+async function execute() {
   try {
-    await fs.emptyDir('./static')
-    await fs.outputFile('./static/DONT-EDIT-FILES-IN-THIS-DIRECTORY.md', 'For more information show `webui/readme.md`')
-    console.log('Deleted static folder contents!')
-    await fs.copy(`./dist/${folder}`, './static', { overwrite: true })
-    console.log('Installed new files in static folder!')
+    await fs.emptyDir("./static");
+    await fs.outputFile(
+      "./static/DONT-EDIT-FILES-IN-THIS-DIRECTORY.md",
+      "For more information show `webui/readme.md`"
+    );
+    console.log("Deleted static folder contents!");
+    await fs.copy(`./dist/${folder}`, "./static", { overwrite: true });
+    console.log("Installed new files in static folder!");
   } catch (err) {
-    console.error(err)
+    console.error(err);
   }
 }
 
-execute()
+execute();

@@ -137,18 +137,18 @@ The TLS options allow one to configure some parameters of the TLS connection.
 !!! important "'default' TLS Option"
 
     The `default` option is special.
-    When no tls options are specified in a tls router, the `default` option is used.  
-    When specifying the `default` option explicitly, make sure not to specify provider namespace as the `default` option does not have one.  
+    When no tls options are specified in a tls router, the `default` option is used.
+    When specifying the `default` option explicitly, make sure not to specify provider namespace as the `default` option does not have one.
     Conversely, for cross-provider references, for example, when referencing the file provider from a docker label,
-    you must specify the provider namespace, for example:  
+    you must specify the provider namespace, for example:
     `traefik.http.routers.myrouter.tls.options=myoptions@file`
 
 !!! important "TLSOptions in Kubernetes"
 
     When using the TLSOptions-CRD in Kubernetes, one might setup a default set of options that,
-    if not explicitly overwritten, should apply to all ingresses.  
+    if not explicitly overwritten, should apply to all ingresses.
     To achieve that, you'll have to create a TLSOptions CR with the name `default`.
-    There may exist only one TLSOption with the name `default` (across all namespaces) - otherwise they will be dropped.  
+    There may exist only one TLSOption with the name `default` (across all namespaces) - otherwise they will be dropped.
     To explicitly use a different TLSOption (and using the Kubernetes Ingress resources)
     you'll have to add an annotation to the Ingress in the following form:
     `traefik.ingress.kubernetes.io/router.tls.options: <resource-namespace>-<resource-name>@kubernetescrd`
@@ -289,7 +289,7 @@ spec:
 
 !!! important "TLS 1.3"
 
-    Cipher suites defined for TLS 1.2 and below cannot be used in TLS 1.3, and vice versa. (<https://tools.ietf.org/html/rfc8446>)  
+    Cipher suites defined for TLS 1.2 and below cannot be used in TLS 1.3, and vice versa. (<https://tools.ietf.org/html/rfc8446>)
     With TLS 1.3, the cipher suites are not configurable (all supported cipher suites are safe in this case).
     <https://golang.org/doc/go1.12#tls_1_3>
 
@@ -405,7 +405,7 @@ _Optional, Default="h2, http/1.1, acme-tls/1"_
 
 This option allows to specify the list of supported application level protocols for the TLS handshake,
 in order of preference.
-If the client supports ALPN, the selected protocol will be one from this list, 
+If the client supports ALPN, the selected protocol will be one from this list,
 and the connection will fail if there is no mutually supported protocol.
 
 ```yaml tab="File (YAML)"

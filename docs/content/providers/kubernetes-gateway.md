@@ -81,9 +81,9 @@ The [getting started guide](https://gateway-api.sigs.k8s.io/v1alpha2/guides/gett
 
 For now, the Traefik Gateway Provider can be used while following the below guides:
 
-* [Simple Gateway](https://gateway-api.sigs.k8s.io/v1alpha2/guides/simple-gateway/)
-* [HTTP routing](https://gateway-api.sigs.k8s.io/v1alpha2/guides/http-routing/)
-* [TLS](https://gateway-api.sigs.k8s.io/v1alpha2/guides/tls/)
+- [Simple Gateway](https://gateway-api.sigs.k8s.io/v1alpha2/guides/simple-gateway/)
+- [HTTP routing](https://gateway-api.sigs.k8s.io/v1alpha2/guides/http-routing/)
+- [TLS](https://gateway-api.sigs.k8s.io/v1alpha2/guides/tls/)
 
 ## Resource Configuration
 
@@ -94,11 +94,11 @@ to retrieve its routing configuration.
 All concepts can be found in the official API concepts [documentation](https://gateway-api.sigs.k8s.io/concepts/api-overview/).
 Traefik implements the following resources:
 
-* `GatewayClass` defines a set of Gateways that share a common configuration and behaviour.
-* `Gateway` describes how traffic can be translated to Services within the cluster.
-* `HTTPRoute` defines HTTP rules for mapping requests from a Gateway to Kubernetes Services.
-* `TCPRoute` defines TCP rules for mapping requests from a Gateway to Kubernetes Services.
-* `TLSRoute` defines TLS rules for mapping requests from a Gateway to Kubernetes Services.
+- `GatewayClass` defines a set of Gateways that share a common configuration and behaviour.
+- `Gateway` describes how traffic can be translated to Services within the cluster.
+- `HTTPRoute` defines HTTP rules for mapping requests from a Gateway to Kubernetes Services.
+- `TCPRoute` defines TCP rules for mapping requests from a Gateway to Kubernetes Services.
+- `TLSRoute` defines TLS rules for mapping requests from a Gateway to Kubernetes Services.
 
 ## Provider Configuration
 
@@ -194,8 +194,8 @@ If left empty, watches all namespaces if the value of `namespaces`.
 providers:
   kubernetesGateway:
     namespaces:
-    - "default"
-    - "production"
+      - "default"
+      - "production"
     # ...
 ```
 

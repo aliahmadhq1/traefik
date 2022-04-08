@@ -172,7 +172,7 @@ http:
 ```yaml tab="Docker"
 # Exclude from `X-Forwarded-For`
 labels:
-    - "traefik.http.middlewares.test-ipwhitelist.ipwhitelist.ipstrategy.excludedips=127.0.0.1/32, 192.168.1.7"
+  - "traefik.http.middlewares.test-ipwhitelist.ipwhitelist.ipstrategy.excludedips=127.0.0.1/32, 192.168.1.7"
 ```
 
 ```yaml tab="Kubernetes"

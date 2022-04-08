@@ -1,9 +1,9 @@
 # Static Configuration: File
 
-```yml  tab="YAML"
+```yml tab="YAML"
 --8<-- "content/reference/static-configuration/file.yaml"
 ```
 
-```toml  tab="TOML"
+```toml tab="TOML"
 --8<-- "content/reference/static-configuration/file.toml"
 ```

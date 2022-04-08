@@ -1,4 +1,3 @@
-
 <p align="center">
 <img src="docs/content/assets/img/traefik.logo.png" alt="Traefik" title="Traefik" />
 </p>
@@ -9,7 +8,6 @@
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/traefik/traefik/blob/master/LICENSE.md)
 [![Join the community support forum at https://community.traefik.io/](https://img.shields.io/badge/style-register-green.svg?style=social&label=Discourse)](https://community.traefik.io/)
 [![Twitter](https://img.shields.io/twitter/follow/traefik.svg?style=social)](https://twitter.com/intent/follow?screen_name=traefik)
-
 
 Traefik (pronounced _traffic_) is a modern HTTP reverse proxy and load balancer that makes deploying microservices easy.
 Traefik integrates with your existing infrastructure components ([Docker](https://www.docker.com/), [Swarm mode](https://docs.docker.com/engine/swarm/), [Kubernetes](https://kubernetes.io), [Marathon](https://mesosphere.github.io/marathon/), [Consul](https://www.consul.io/), [Etcd](https://coreos.com/etcd/), [Rancher](https://rancher.com), [Amazon ECS](https://aws.amazon.com/ecs), ...) and configures itself automatically and dynamically.
@@ -39,14 +37,14 @@ Pointing Traefik at your orchestrator should be the _only_ configuration step yo
 Imagine that you have deployed a bunch of microservices with the help of an orchestrator (like Swarm or Kubernetes) or a service registry (like etcd or consul).
 Now you want users to access these microservices, and you need a reverse proxy.
 
-Traditional reverse-proxies require that you configure _each_ route that will connect paths and subdomains to _each_ microservice. 
-In an environment where you add, remove, kill, upgrade, or scale your services _many_ times a day, the task of keeping the routes up to date becomes tedious. 
+Traditional reverse-proxies require that you configure _each_ route that will connect paths and subdomains to _each_ microservice.
+In an environment where you add, remove, kill, upgrade, or scale your services _many_ times a day, the task of keeping the routes up to date becomes tedious.
 
 **This is when Traefik can help you!**
 
-Traefik listens to your service registry/orchestrator API and instantly generates the routes so your microservices are connected to the outside world -- without further intervention from your part. 
+Traefik listens to your service registry/orchestrator API and instantly generates the routes so your microservices are connected to the outside world -- without further intervention from your part.
 
-**Run Traefik and let it do the work for you!** 
+**Run Traefik and let it do the work for you!**
 _(But if you'd rather configure some of your routes manually, Traefik supports that too!)_
 
 ![Architecture](docs/content/assets/img/traefik-architecture.png)
@@ -55,7 +53,7 @@ _(But if you'd rather configure some of your routes manually, Traefik supports t
 
 - Continuously updates its configuration (No restarts!)
 - Supports multiple load balancing algorithms
-- Provides HTTPS to your microservices by leveraging [Let's Encrypt](https://letsencrypt.org)  (wildcard certificates support)
+- Provides HTTPS to your microservices by leveraging [Let's Encrypt](https://letsencrypt.org) (wildcard certificates support)
 - Circuit breakers, retry
 - See the magic through its clean web UI
 - Websocket, HTTP/2, GRPC ready
@@ -64,7 +62,6 @@ _(But if you'd rather configure some of your routes manually, Traefik supports t
 - Fast
 - Exposes a Rest API
 - Packaged as a single binary file (made with :heart: with go) and available as an [official](https://hub.docker.com/r/_/traefik/) docker image
-
 
 ## Supported Backends
 
@@ -95,6 +92,7 @@ A collection of contributions around Traefik can be found at [https://awesome.tr
 ## Support
 
 To get community support, you can:
+
 - join the Traefik community forum: [![Join the chat at https://community.traefik.io/](https://img.shields.io/badge/style-register-green.svg?style=social&label=Discourse)](https://community.traefik.io/)
 
 If you need commercial support, please contact [Traefik.io](https://traefik.io) by mail: <mailto:support@traefik.io>.
@@ -128,7 +126,6 @@ You can find high level and deep dive videos on [videos.traefik.io](https://vide
 We are strongly promoting a philosophy of openness and sharing, and firmly standing against the elitist closed approach. Being part of the core team should be accessible to anyone who is motivated and want to be part of that journey!
 This [document](docs/content/contributing/maintainers-guidelines.md) describes how to be part of the core team as well as various responsibilities and guidelines for Traefik maintainers.
 You can also find more information on our process to review pull requests and manage issues [in this document](docs/content/contributing/maintainers.md).
-
 
 ## Contributing
 

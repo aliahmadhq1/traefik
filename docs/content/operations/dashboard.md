@@ -20,9 +20,9 @@ There are 2 ways to configure and access the dashboard:
 - [Insecure mode](#insecure-mode)
 
 !!! note ""
-    There is also a redirect of the path `/` to the path `/dashboard/`,
-    but one should not rely on that property as it is bound to change,
-    and it might make for confusing routing rules anyway.
+There is also a redirect of the path `/` to the path `/dashboard/`,
+but one should not rely on that property as it is bound to change,
+and it might make for confusing routing rules anyway.
 
 ## Secure Mode
 
@@ -78,7 +78,7 @@ As underlined in the [documentation for the `api.dashboard` option](./api.md#das
 the [router rule](../routing/routers/index.md#rule) defined for Traefik must match
 the path prefixes `/api` and `/dashboard`.
 
-We recommend to use a "Host Based rule" as ```Host(`traefik.example.com`)``` to match everything on the host domain,
+We recommend to use a "Host Based rule" as `` Host(`traefik.example.com`) `` to match everything on the host domain,
 or to make sure that the defined rule captures both prefixes:
 
 ```bash tab="Host Rule"
@@ -97,7 +97,7 @@ rule = "Host(`traefik.example.com`) && (PathPrefix(`/api`) || PathPrefix(`/dashb
 ```
 
 ??? example "Dashboard Dynamic Configuration Examples"
-    --8<-- "content/operations/include-dashboard-examples.md"
+--8<-- "content/operations/include-dashboard-examples.md"
 
 ## Insecure Mode
 

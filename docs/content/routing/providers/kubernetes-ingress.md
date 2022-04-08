@@ -210,7 +210,7 @@ which in turn will create the resulting routers, services, handlers, etc.
 ## Annotations
 
 !!! warning "Referencing resources in annotations"
-    
+
     In an annotation, when referencing a resource defined by another provider,
     the [provider namespace syntax](../../providers/overview.md#provider-namespace) must be used.
 
@@ -368,8 +368,8 @@ the new `pathType` property can be leveraged to define the rules matchers:
 Please see [this documentation](https://kubernetes.io/docs/concepts/services-networking/ingress/#path-types) for more information.
 
 !!! warning "Multiple Matches"
-    In the case of multiple matches, Traefik will not ensure the priority of a Path matcher over a PathPrefix matcher,
-    as stated in [this documentation](https://kubernetes.io/docs/concepts/services-networking/ingress/#multiple-matches).
+In the case of multiple matches, Traefik will not ensure the priority of a Path matcher over a PathPrefix matcher,
+as stated in [this documentation](https://kubernetes.io/docs/concepts/services-networking/ingress/#multiple-matches).
 
 ## TLS
 
@@ -387,7 +387,7 @@ TLS can be enabled through the [HTTP options](../entrypoints.md#tls) of an Entry
 # Static configuration
 entryPoints:
   websecure:
-    address: ':443'
+    address: ":443"
     http:
       tls: {}
 ```
@@ -908,7 +908,7 @@ Ingresses can be created that look like the following:
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
- name: cheese
+  name: cheese
 
 spec:
   defaultBackend:
@@ -922,7 +922,7 @@ spec:
 apiVersion: networking.k8s.io/v1beta1
 kind: Ingress
 metadata:
- name: cheese
+  name: cheese
 
 spec:
   defaultBackend:
