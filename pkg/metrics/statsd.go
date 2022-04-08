@@ -98,7 +98,7 @@ func RegisterStatsd(ctx context.Context, config *types.Statsd) Registry {
 // initStatsdTicker initializes metrics pusher and creates a statsdClient if not created already.
 func initStatsdTicker(ctx context.Context, config *types.Statsd) *time.Ticker {
 	address := config.Address
-	if len(address) == 0 {
+	if address == "" {
 		address = "localhost:8125"
 	}
 

@@ -74,7 +74,7 @@ func (c *CertificateStore) GetBestCertificate(clientHello *tls.ClientHelloInfo) 
 		return nil
 	}
 	domainToCheck := strings.ToLower(strings.TrimSpace(clientHello.ServerName))
-	if len(domainToCheck) == 0 {
+	if domainToCheck == "" {
 		// If no ServerName is provided, Check for local IP address matches
 		host, _, err := net.SplitHostPort(clientHello.Conn.LocalAddr().String())
 		if err != nil {

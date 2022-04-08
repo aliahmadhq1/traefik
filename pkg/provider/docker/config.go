@@ -286,7 +286,7 @@ func (p *Provider) getIPPort(ctx context.Context, container dockerData, serverPo
 		switch {
 		case err != nil:
 			logger.Infof("Unable to find a binding for container %q, falling back on its internal IP/Port.", container.Name)
-		case portBinding.HostIP == "0.0.0.0" || len(portBinding.HostIP) == 0:
+		case portBinding.HostIP == "0.0.0.0" || portBinding.HostIP == "":
 			logger.Infof("Cannot determine the IP address (got %q) for %q's binding, falling back on its internal IP/Port.", portBinding.HostIP, container.Name)
 		default:
 			ip = portBinding.HostIP
@@ -300,7 +300,7 @@ func (p *Provider) getIPPort(ctx context.Context, container dockerData, serverPo
 		port = getPort(container, serverPort)
 	}
 
-	if len(ip) == 0 {
+	if ip == "" {
 		return "", "", fmt.Errorf("unable to find the IP address for the container %q: the server is ignored", container.Name)
 	}
 

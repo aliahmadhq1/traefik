@@ -97,7 +97,7 @@ func RegisterDatadog(ctx context.Context, config *types.Datadog) Registry {
 
 func initDatadogClient(ctx context.Context, config *types.Datadog) *time.Ticker {
 	address := config.Address
-	if len(address) == 0 {
+	if address == "" {
 		address = "localhost:8125"
 	}
 

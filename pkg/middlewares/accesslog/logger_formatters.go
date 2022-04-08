@@ -74,7 +74,7 @@ func toLog(fields logrus.Fields, key, defaultValue string, quoted bool) interfac
 }
 
 func toLogEntry(s, defaultValue string, quote bool) string {
-	if len(s) == 0 {
+	if s == "" {
 		return defaultValue
 	}
 

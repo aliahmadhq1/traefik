@@ -346,7 +346,7 @@ func (p *Provider) listContainers(ctx context.Context, dockerClient client.Conta
 	// get inspect containers
 	for _, container := range containerList {
 		dData := inspectContainers(ctx, dockerClient, container.ID)
-		if len(dData.Name) == 0 {
+		if dData.Name == "" {
 			continue
 		}
 

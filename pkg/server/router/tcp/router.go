@@ -242,7 +242,7 @@ func (m *Manager) buildEntryPointHandler(ctx context.Context, configs map[string
 
 				tlsOptionsName := routerConfig.TLS.Options
 
-				if len(tlsOptionsName) == 0 {
+				if tlsOptionsName == "" {
 					tlsOptionsName = traefiktls.DefaultTLSConfigName
 				}
 

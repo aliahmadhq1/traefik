@@ -297,7 +297,7 @@ func (p *Provider) loadConfigurationFromIngresses(ctx context.Context, client Cl
 
 				portString := pa.Backend.Service.Port.Name
 
-				if len(pa.Backend.Service.Port.Name) == 0 {
+				if pa.Backend.Service.Port.Name == "" {
 					portString = fmt.Sprint(pa.Backend.Service.Port.Number)
 				}
 
@@ -345,8 +345,8 @@ func (p *Provider) updateIngressStatus(ing *networkingv1.Ingress, k8sClient Clie
 		return nil
 	}
 
-	if len(p.IngressEndpoint.PublishedService) == 0 {
-		if len(p.IngressEndpoint.IP) == 0 && len(p.IngressEndpoint.Hostname) == 0 {
+	if p.IngressEndpoint.PublishedService == "" {
+		if p.IngressEndpoint.IP == "" && p.IngressEndpoint.Hostname == "" {
 			return errors.New("publishedService or ip or hostname must be defined")
 		}
 
@@ -391,7 +391,7 @@ func (p *Provider) shouldProcessIngress(ingress *networkingv1.Ingress, ingressCl
 	}
 
 	return p.IngressClass == ingress.Annotations[annotationKubernetesIngressClass] ||
-		len(p.IngressClass) == 0 && ingress.Annotations[annotationKubernetesIngressClass] == traefikDefaultIngressClass
+		p.IngressClass == "" && ingress.Annotations[annotationKubernetesIngressClass] == traefikDefaultIngressClass
 }
 
 func buildHostRule(host string) string {

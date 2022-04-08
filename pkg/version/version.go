@@ -100,7 +100,7 @@ func CheckNewVersion() {
 			return
 		}
 
-		if len(currentVersion.Prerelease()) == 0 && len(releaseVersion.Prerelease()) > 0 {
+		if currentVersion.Prerelease() == "" && len(releaseVersion.Prerelease()) > 0 {
 			continue
 		}
 

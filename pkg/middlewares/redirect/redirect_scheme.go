@@ -24,7 +24,7 @@ func NewRedirectScheme(ctx context.Context, next http.Handler, conf dynamic.Redi
 	logger.Debug("Creating middleware")
 	logger.Debugf("Setting up redirection to %s %s", conf.Scheme, conf.Port)
 
-	if len(conf.Scheme) == 0 {
+	if conf.Scheme == "" {
 		return nil, errors.New("you must provide a target scheme")
 	}
 

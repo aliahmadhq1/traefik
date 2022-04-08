@@ -270,7 +270,7 @@ func (p *Provider) taskFilter(ctx context.Context, task marathon.Task, applicati
 
 func (p *Provider) getTCPServer(app marathon.Application, task marathon.Task, extraConf configuration, defaultServer dynamic.TCPServer) (dynamic.TCPServer, error) {
 	host, err := p.getServerHost(task, app, extraConf)
-	if len(host) == 0 {
+	if host == "" {
 		return dynamic.TCPServer{}, err
 	}
 
@@ -288,7 +288,7 @@ func (p *Provider) getTCPServer(app marathon.Application, task marathon.Task, ex
 
 func (p *Provider) getUDPServer(app marathon.Application, task marathon.Task, extraConf configuration, defaultServer dynamic.UDPServer) (dynamic.UDPServer, error) {
 	host, err := p.getServerHost(task, app, extraConf)
-	if len(host) == 0 {
+	if host == "" {
 		return dynamic.UDPServer{}, err
 	}
 
@@ -306,7 +306,7 @@ func (p *Provider) getUDPServer(app marathon.Application, task marathon.Task, ex
 
 func (p *Provider) getServer(app marathon.Application, task marathon.Task, extraConf configuration, defaultServer dynamic.Server) (dynamic.Server, error) {
 	host, err := p.getServerHost(task, app, extraConf)
-	if len(host) == 0 {
+	if host == "" {
 		return dynamic.Server{}, err
 	}
 
@@ -333,7 +333,7 @@ func (p *Provider) getServerHost(task marathon.Task, app marathon.Application, e
 	}
 
 	if hostFlag || p.ForceTaskHostname {
-		if len(task.Host) == 0 {
+		if task.Host == "" {
 			return "", fmt.Errorf("host is undefined for task %q app %q", task.ID, app.ID)
 		}
 		return task.Host, nil

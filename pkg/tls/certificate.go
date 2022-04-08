@@ -140,7 +140,7 @@ func (c *Certificates) isEmpty() bool {
 	}
 	var key int
 	for _, cert := range *c {
-		if len(cert.CertFile.String()) != 0 && len(cert.KeyFile.String()) != 0 {
+		if cert.CertFile.String() != "" && cert.KeyFile.String() != "" {
 			break
 		}
 		key++
